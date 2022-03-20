@@ -1,1 +1,13 @@
-{}
+{
+	"font-extrabold": {
+		"style": {
+			"fontWeight": "800"
+		}
+	},
+	"text-blue-400": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(96 165 250 / var(--tw-text-opacity))"
+		}
+	}
+}
