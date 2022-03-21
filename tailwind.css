@@ -1,9 +1,53 @@
+.absolute {
+  position: absolute
+}
+
+.mt-10 {
+  margin-top: 2.5rem
+}
+
+.mt-20 {
+  margin-top: 5rem
+}
+
+.mt-64 {
+  margin-top: 16rem
+}
+
+.flex {
+  display: flex
+}
+
 .h-full {
   height: 100%
 }
 
+.w-14 {
+  width: 3.5rem
+}
+
+.w-full {
+  width: 100%
+}
+
+.w-64 {
+  width: 16rem
+}
+
 .flex-1 {
   flex: 1 1 0%
+}
+
+.content-center {
+  align-content: center
+}
+
+.items-center {
+  align-items: center
+}
+
+.justify-center {
+  justify-content: center
 }
 
 .rounded-full {
@@ -13,6 +57,11 @@
 .bg-blue-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity))
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity))
 }
 
 .px-3 {
@@ -36,4 +85,8 @@
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity))
+}
+
+.opacity-50 {
+  opacity: 0.5
 }
