@@ -13,9 +13,11 @@
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
   },
   "dependencies": {
+    "immer": "^9.0.12",
     "react": "17.0.2",
     "react-native": "0.67.4",
-    "tailwind-rn": "^4.2.0"
+    "tailwind-rn": "^4.2.0",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -47,15 +47,6 @@
   color: rgb(255 255 255 / var(--tw-text-opacity))
 }
 
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity))
-}
-
-.opacity-100 {
-  opacity: 1
-}
-
 @media (prefers-color-scheme: dark) {
   .dark\:bg-white {
     --tw-bg-opacity: 1;
@@ -70,15 +61,5 @@
   .dark\:text-blue-800 {
     --tw-text-opacity: 1;
     color: rgb(30 64 175 / var(--tw-text-opacity))
-  }
-
-  .dark\:text-black {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0 / var(--tw-text-opacity))
-  }
-
-  .dark\:text-red-600 {
-    --tw-text-opacity: 1;
-    color: rgb(220 38 38 / var(--tw-text-opacity))
   }
 }
