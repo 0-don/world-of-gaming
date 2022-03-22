@@ -1,16 +1,16 @@
 import React from 'react';
-import {TailwindProvider} from 'tailwind-rn';
-import utilities from './tailwind.json';
-import {Main} from './src';
 import {StatusBar} from 'react-native';
+import {TailwindProvider} from 'tailwind-rn';
+import {Main} from './src';
+import utilities from './tailwind.json';
 
 const App = () => {
   return (
-    <TailwindProvider utilities={utilities}>
+    <TailwindProvider utilities={utilities} colorScheme="light">
       <StatusBar
-        backgroundColor={'transparent'}
-        barStyle="dark-content"
-        translucent={true}
+        backgroundColor={'rgba(0,0,0,0)'}
+        barStyle="light-content"
+        translucent
       />
       <Main />
     </TailwindProvider>
