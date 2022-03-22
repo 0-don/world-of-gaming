@@ -11,7 +11,7 @@ const useSearchStore = create<SearchStore>(
     (set): SearchStore => ({
       searchTerm: '',
       setSearchTerm: (search: string) =>
-        set(state => (state.searchTerm = search)),
+        set(state => void (state.searchTerm = search)),
     }),
   ),
 );

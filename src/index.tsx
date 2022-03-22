@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
+import {Search} from './components/Search';
 import {BackgroundImage} from './containers/BackgroundImage';
 
 export const Main = () => {
@@ -16,6 +17,7 @@ export const Main = () => {
         </View>
         <Text style={tailwind('dark:bg-red-500 bg-white')}>Asda</Text>
       </View>
+      <Search />
     </BackgroundImage>
   );
 };

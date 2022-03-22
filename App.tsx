@@ -6,7 +6,7 @@ import utilities from './tailwind.json';
 
 const App = () => {
   return (
-    <TailwindProvider utilities={utilities} colorScheme="light">
+    <TailwindProvider utilities={utilities} colorScheme="dark">
       <StatusBar
         backgroundColor={'rgba(0,0,0,0)'}
         barStyle="light-content"

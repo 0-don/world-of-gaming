@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageBackground} from 'react-native';
+import {Dimensions, ImageBackground} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {SafeArea} from './SafeArea';
 
@@ -12,9 +12,14 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   children,
 }) => {
   const tailwind = useTailwind();
+  const {width, height} = Dimensions.get('screen');
   return (
     <ImageBackground
-      style={tailwind('flex-1')}
+      style={{...tailwind('flex-1')}}
+      imageStyle={{
+        width,
+        height: height,
+      }}
       source={require('../assets/bg.png')}>
       {safeArea ? <SafeArea>{children}</SafeArea> : children}
     </ImageBackground>
