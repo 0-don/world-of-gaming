@@ -1,14 +1,11 @@
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {useTailwind} from 'tailwind-rn';
-import {Search} from './components/Search';
-import {BackgroundImage} from './containers/BackgroundImage';
+import {AppNav} from './navigation/AppNav';
 
 export const Main = () => {
-  const tailwind = useTailwind();
-
   return (
-    <BackgroundImage safeArea>
-      <Search />
-    </BackgroundImage>
+    <NavigationContainer>
+      <AppNav />
+    </NavigationContainer>
   );
 };
