@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useTailwind} from 'tailwind-rn/dist';
+import {Shadow} from 'react-native-shadow-2';
 
 interface InputProps {
   value: string;
@@ -14,23 +15,32 @@ export const Input: React.FC<InputProps> = ({
   onChangeText,
   placeholder,
 }) => {
+  const [focus, setFocus] = useState(false);
   const tailwind = useTailwind();
-  const test = '<div class=" bg-white relative rounded-md ">asd</div>';
 
   return (
-    <View style={tailwind('relative rounded-md bg-white')}>
+    <Shadow distance={3} startColor={'#000'}>
       <View
         style={tailwind(
-          'pointer-events-none absolute inset-y-2 left-0 flex items-center pl-3',
+          `relative h-10 w-full flex-row flex-wrap items-center rounded-md border ${
+            focus ? 'border-purple-dark' : 'border-black'
+          } bg-white`,
         )}>
-        <Icon name="" size={30} color="#900" />
+        <Icon
+          style={tailwind('w-1/12 pl-1.5')}
+          name="search"
+          size={20}
+          color={`${focus ? '#9147ff' : 'black'}`}
+        />
+        <TextInput
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+          style={tailwind('w-11/12')}
+          placeholder={placeholder}
+          onChangeText={onChangeText}
+          value={value}
+        />
       </View>
-      <TextInput
-        style={tailwind('rounded-md border-2 border-gray-900 pl-10 sm:text-sm')}
-        placeholder={placeholder}
-        onChangeText={onChangeText}
-        value={value}
-      />
-    </View>
+    </Shadow>
   );
 };
