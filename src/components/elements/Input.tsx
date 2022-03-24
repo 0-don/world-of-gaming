@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, TextInput} from 'react-native';
-import {MailIcon} from 'react-native-heroicons/solid';
+import {TextInput, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {useTailwind} from 'tailwind-rn/dist';
 
 interface InputProps {
@@ -21,10 +21,7 @@ export const Input: React.FC<InputProps> = ({
         style={tailwind(
           'absolute inset-y-2 left-0 pl-3 flex items-center pointer-events-none',
         )}>
-        <MailIcon
-          style={tailwind('h-5 w-5 text-gray-400')}
-          aria-hidden="true"
-        />
+        <Icon name="" size={30} color="#900" />
       </View>
       <TextInput
         style={tailwind('pl-10 sm:text-sm border-gray-900 border-2 rounded-md')}
