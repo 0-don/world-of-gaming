@@ -1,6 +1,8 @@
 import {immer} from '../utils/immer';
 import create from 'zustand';
 import {CLIENT_ID, CLIENT_SECRET} from '@env';
+import {igdbUrl} from '../utils/constants';
+import apicalypse from 'apicalypse';
 
 type IgdbStore = {
   error: string;
@@ -10,6 +12,7 @@ type IgdbStore = {
   expires_in: string;
   token_type: string;
   authenticate: () => void;
+  getGames: () => void;
 };
 
 type AuthResponse = {
@@ -48,6 +51,34 @@ const useIgdbStore = create<IgdbStore>(
               state.error = JSON.stringify(err);
             }),
           );
+      },
+      getGames: async () => {
+        const requestOptions = {
+          queryMethod: 'url',
+          method: 'post',
+          baseURL: igdbUrl,
+          headers: {
+            'Client-ID': get().client_id,
+            Authorization: `Bearer ${get().access_token}`,
+          },
+        };
+        const now = Date.now();
+        const result = await apicalypse(requestOptions)
+          .multi([
+            apicalypse()
+              .query('games', 'latest-games')
+              .fields('name')
+              .where(`created_at < ${now}`)
+              .sort('created_at desc'),
+            apicalypse()
+              .query('games', 'coming-soon')
+              .fields('name')
+              .where(`created_at > ${now}`)
+              .sort('created_at asc'),
+          ])
+          .request('/multiquery');
+
+        console.log('igdb result', result);
       },
     }),
   ),
