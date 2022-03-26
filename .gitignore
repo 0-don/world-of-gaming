@@ -58,3 +58,4 @@ yarn.lock
 
 # CocoaPods
 /ios/Pods/
+.env
