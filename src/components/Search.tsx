@@ -1,28 +1,28 @@
-import React, {Dispatch, SetStateAction, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {GamesQuery, useGamesLazyQuery} from '../graphql/generated/graphql';
-
+import {useGamesLazyQuery} from '../graphql/generated/graphql';
+import useGamesStore from '../store/GamesStore';
 import {Input} from './elements/Input';
 
-interface SearchProps {
-  setGames: Dispatch<SetStateAction<GamesQuery | undefined>>;
-}
+interface SearchProps {}
 
-export const Search: React.FC<SearchProps> = ({setGames}) => {
+export const Search: React.FC<SearchProps> = ({}) => {
   const tailwind = useTailwind();
-  const [games] = useGamesLazyQuery();
-  const [search, setSearch] = React.useState('');
+  const {setGames, setLoading, search, setSearch} = useGamesStore();
+  const [games, {loading}] = useGamesLazyQuery();
 
   useEffect(() => {
+    setLoading(loading);
     const fetchGames = async () => {
       const {data} = await games({
         variables: {where: {name: {contains: search}}},
       });
-      setGames(data);
+
+      setGames(data?.games);
     };
     fetchGames();
-  }, [search, games, setGames]);
+  }, [search, games, setGames, loading, setLoading]);
 
   return (
     <View style={tailwind('mx-6')}>
