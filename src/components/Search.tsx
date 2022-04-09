@@ -7,9 +7,10 @@ interface SearchProps {}
 
 export const Search: React.FC<SearchProps> = ({}) => {
   const tailwind = useTailwind();
+  const [search, setSearch] = React.useState('');
   return (
     <View style={tailwind('mx-6')}>
-      <Input value={searchTerm} onChangeText={setSearchTerm} />
+      <Input value={search} onChangeText={setSearch} />
     </View>
   );
 };

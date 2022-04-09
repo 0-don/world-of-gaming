@@ -1,5 +1,5 @@
 {
-  "name": "worldofgaming",
+  "name": "world-of-gaming",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -15,7 +15,6 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.2",
-    "immer": "^9.0.12",
     "react": "17.0.2",
     "react-native": "0.67.4",
     "react-native-dotenv": "^3.3.1",
@@ -24,8 +23,7 @@
     "react-native-shadow-2": "^6.0.3",
     "react-native-svg": "^12.3.0",
     "react-native-vector-icons": "^9.1.0",
-    "tailwind-rn": "^4.2.0",
-    "zustand": "^3.7.1"
+    "tailwind-rn": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
