@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {AppRegistry, StatusBar} from 'react-native';
 import {TailwindProvider} from 'tailwind-rn';
 import {Main} from './src';
 import utilities from './tailwind.json';
@@ -16,5 +16,7 @@ const App = () => {
     </TailwindProvider>
   );
 };
+
+AppRegistry.registerComponent('MyApplication', () => App);
 
 export default App;

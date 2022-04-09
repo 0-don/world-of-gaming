@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 module.exports = {
   overwrite: true,
-  schema: ['https://igdb.myngz.com'],
+  schema: [process.env.GRAPHQL_URL],
   documents: 'src/graphql/**/*.graphql',
   config: {
     scalars: {
