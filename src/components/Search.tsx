@@ -13,7 +13,6 @@ export const Search: React.FC<SearchProps> = ({}) => {
   const [games, {loading}] = useGamesLazyQuery();
 
   useEffect(() => {
-    setLoading(loading);
     const fetchGames = async () => {
       const {data} = await games({
         variables: {where: {name: {contains: search}}},
@@ -22,7 +21,11 @@ export const Search: React.FC<SearchProps> = ({}) => {
       setGames(data?.games);
     };
     fetchGames();
-  }, [search, games, setGames, loading, setLoading]);
+  }, [search, games, setGames]);
+
+  useEffect(() => {
+    setLoading(loading);
+  }, [setLoading, loading]);
 
   return (
     <View style={tailwind('mx-6')}>

@@ -1,14 +1,14 @@
 /* eslint-disable no-void */
 import {immer} from '../utils/immer';
 import create from 'zustand';
-import {GamesQuery} from '../graphql/generated/graphql';
+import {GamesQueryType} from '../utils/types';
 
 type GamesStore = {
   search: string;
-  games: GamesQuery['games'] | undefined;
+  games: GamesQueryType[] | undefined | null;
   loading: boolean;
   setSearch: (search: string) => void;
-  setGames: (games: GamesQuery['games'] | undefined) => void;
+  setGames: (games: GamesQueryType[] | undefined | null) => void;
   setLoading: (loading: boolean) => void;
 };
 
