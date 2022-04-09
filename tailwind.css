@@ -56,14 +56,14 @@
   border-color: rgb(119 44 232 / var(--tw-border-opacity))
 }
 
-.border-black {
+.border-lightGray {
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity))
+  border-color: rgb(94 94 96 / var(--tw-border-opacity))
 }
 
-.bg-white {
+.bg-dark-light {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+  background-color: rgb(70 70 73 / var(--tw-bg-opacity))
 }
 
 .pl-1\.5 {
@@ -74,7 +74,7 @@
   padding-left: 0.25rem
 }
 
-.text-black {
+.text-white {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity))
+  color: rgb(255 255 255 / var(--tw-text-opacity))
 }

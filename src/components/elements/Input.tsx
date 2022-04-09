@@ -22,22 +22,23 @@ export const Input: React.FC<InputProps> = ({
     <Shadow distance={3} startColor={'#000'}>
       <View
         style={tailwind(
-          `relative h-10 w-full flex-row flex-wrap items-center rounded-md border ${
-            focus ? 'border-purple-dark' : 'border-black'
-          } bg-white`,
+          `relative h-10 w-full flex-row flex-wrap items-center rounded-md border  ${
+            focus ? 'border-purple-dark' : 'border-lightGray'
+          } bg-dark-light`,
         )}>
         <Icon
-          style={tailwind('w-1/12 pl-1.5')}
+          style={tailwind('w-1/12 pl-1.5 ')}
           name="search"
           size={20}
-          color={`${focus ? '#9147ff' : 'black'}`}
+          color={`${focus ? '#9147ff' : 'white'}`}
         />
         <TextInput
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
-          style={tailwind('w-11/12 text-black')}
+          style={tailwind('w-11/12 text-white')}
           placeholder={placeholder}
           onChangeText={onChangeText}
+          selectionColor={'#9147ff'}
           value={value}
         />
       </View>
