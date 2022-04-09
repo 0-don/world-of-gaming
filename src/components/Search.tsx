@@ -1,7 +1,8 @@
 import React, {Dispatch, SetStateAction, useEffect} from 'react';
 import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {GamesQuery, useGamesLazyQuery} from '../generated/graphql';
+import {GamesQuery, useGamesLazyQuery} from '../graphql/generated/graphql';
+
 import {Input} from './elements/Input';
 
 interface SearchProps {

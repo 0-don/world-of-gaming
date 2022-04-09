@@ -10,7 +10,7 @@ module.exports = {
     },
   },
   generates: {
-    './src/generated/graphql.tsx': {
+    './src/graphql/generated/graphql.tsx': {
       plugins: [
         'typescript',
         'typescript-operations',
