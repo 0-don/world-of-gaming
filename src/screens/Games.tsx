@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Search} from '../components/Search';
-import {BackgroundImage} from '../containers/BackgroundImage';
+
 import {GamesQuery} from '../generated/graphql';
 
 interface GamesProps {}

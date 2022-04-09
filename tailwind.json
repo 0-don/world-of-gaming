@@ -91,6 +91,12 @@
 			"borderLeftColor": "rgb(94 94 96 / var(--tw-border-opacity))"
 		}
 	},
+	"bg-black": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(0 0 0 / var(--tw-bg-opacity))"
+		}
+	},
 	"bg-dark-light": {
 		"style": {
 			"--tw-bg-opacity": 1,

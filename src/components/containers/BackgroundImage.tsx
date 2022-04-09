@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Dimensions, ImageBackground, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -19,9 +20,9 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
       imageStyle={{
         width,
         height: height,
-        backgroundColor: '#000',
+        ...tailwind('bg-black'),
       }}
-      source={require('../assets/bg.png')}>
+      source={require('../../assets/bg.png')}>
       <View style={{backgroundColor: 'rgba(0,0,0,0.65)', height: '100%'}}>
         {safeArea ? <SafeArea>{children}</SafeArea> : children}
       </View>
