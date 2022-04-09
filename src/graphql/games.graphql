@@ -1,0 +1,26 @@
+query Games($where: GamesWhereInput, $sort: GamesSortInput, $limit: Int, $offset: Int) {
+  games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+    id
+    follows
+    hypes
+    name
+    status
+    aggregated_rating
+    aggregated_rating_count
+    category
+    created_at
+    first_release_date
+    rating
+    rating_count
+    slug
+    storyline
+    summary
+    tags
+    total_rating
+    total_rating_count
+    updated_at
+    url
+    version_title
+    checksum
+  }
+}
