@@ -1,6 +1,9 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    fontFamily: {
+      'objektiv-mk1': ['Objektiv Mk1'],
+    },
     extend: {
       colors: {
         purple: {

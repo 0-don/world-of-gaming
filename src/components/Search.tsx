@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {useGamesLazyQuery} from '../graphql/generated/schema';
+import {ImageTypeEnum, useGamesLazyQuery} from '../graphql/generated/schema';
 import useGamesStore from '../store/GamesStore';
 import {Input} from './elements/Input';
 
@@ -16,7 +16,10 @@ export const Search: React.FC<SearchProps> = ({}) => {
     const fetchGames = async () => {
       setLoading(true);
       const {data} = await games({
-        variables: {where: {name: {contains: search}}},
+        variables: {
+          where: {name: {contains: search}},
+          imageType: ImageTypeEnum.CoverBig,
+        },
       });
 
       setGames(data?.games);

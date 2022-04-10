@@ -9,20 +9,20 @@ interface GameCardProps {
 
 export const GameCard: React.FC<GameCardProps> = ({game}) => {
   const tailwind = useTailwind();
-  const cover = game.cover?.url;
-  console.log(cover);
+
   return (
     <View style={tailwind('bg-dark')}>
       <View style={tailwind('flex-row')}>
         <Image
           source={{
-            uri: cover ?? 'https://reactnative.dev/img/tiny_logo.png',
+            uri: game.cover?.url ?? '',
           }}
           resizeMode="contain"
-          // resizeMethod="scale"
-          style={tailwind('h-20 w-20')}
+          style={tailwind('w-24 [height:undefined] [aspectRatio:1]')}
         />
-        <Text style={tailwind('text-white')}>{game?.name}</Text>
+        <Text style={tailwind('font-objektiv-mk1 text-white')}>
+          {game?.name}
+        </Text>
       </View>
     </View>
   );

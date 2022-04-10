@@ -20,24 +20,9 @@
 			"height": 40
 		}
 	},
-	"h-5": {
+	"w-24": {
 		"style": {
-			"height": 20
-		}
-	},
-	"h-auto": {
-		"style": {
-			"height": "auto"
-		}
-	},
-	"h-20": {
-		"style": {
-			"height": 80
-		}
-	},
-	"h-full": {
-		"style": {
-			"height": "100%"
+			"width": 96
 		}
 	},
 	"w-full": {
@@ -53,36 +38,6 @@
 	"w-11/12": {
 		"style": {
 			"width": "91.666667%"
-		}
-	},
-	"w-5": {
-		"style": {
-			"width": 20
-		}
-	},
-	"w-10": {
-		"style": {
-			"width": 40
-		}
-	},
-	"w-20": {
-		"style": {
-			"width": 80
-		}
-	},
-	"w-auto": {
-		"style": {
-			"width": "auto"
-		}
-	},
-	"w-2/12": {
-		"style": {
-			"width": "16.666667%"
-		}
-	},
-	"w-3/12": {
-		"style": {
-			"width": "25%"
 		}
 	},
 	"flex-1": {
@@ -169,10 +124,23 @@
 			"paddingLeft": 4
 		}
 	},
+	"font-objektiv-mk1": {
+		"style": {
+			"fontFamily": "Objektiv Mk1"
+		}
+	},
 	"text-white": {
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
+		}
+	},
+	"[height:undefined]": {
+		"style": {}
+	},
+	"[aspectRatio:1]": {
+		"style": {
+			"aspectRatio": 1
 		}
 	}
 }

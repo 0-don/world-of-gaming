@@ -22,7 +22,7 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
         height: height,
         ...tailwind('bg-black'),
       }}
-      source={require('../../assets/bg.png')}>
+      source={require('../../assets/images/bg.png')}>
       <View style={{backgroundColor: 'rgba(0,0,0,0.65)', height: '100%'}}>
         {safeArea ? <SafeArea>{children}</SafeArea> : children}
       </View>
