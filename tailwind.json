@@ -124,11 +124,6 @@
 			"paddingLeft": 4
 		}
 	},
-	"font-objektiv-mk1": {
-		"style": {
-			"fontFamily": "Objektiv Mk1"
-		}
-	},
 	"text-white": {
 		"style": {
 			"--tw-text-opacity": 1,

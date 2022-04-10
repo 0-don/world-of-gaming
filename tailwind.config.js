@@ -2,7 +2,11 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      'objektiv-mk1': ['Objektiv Mk1'],
+      'objektiv-mk1-light': ['Objektiv_Mk1_Light'],
+      'objektiv-mk1-thin': ['Objektiv_Mk1_Thin'],
+      'objektiv-mk1-regular': ['Objektiv_Mk1_Regular'],
+      'objektiv-mk1-bold': ['Objektiv_Mk1_Bold'],
+      'sf-pro-display-regular': ['SF_Pro_Display_Regular'],
     },
     extend: {
       colors: {
