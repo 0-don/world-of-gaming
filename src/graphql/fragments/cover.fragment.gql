@@ -3,7 +3,7 @@ fragment Cover on Cover {
   alpha_channel
   animated
   image_id
-  url
+  url(imageType: $imageType)
   width
   checksum
 }

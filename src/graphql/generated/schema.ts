@@ -994,6 +994,7 @@ export type GamesQueryVariables = Exact<{
   sort?: InputMaybe<GamesSortInput>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
+  imageType?: InputMaybe<ImageTypeEnum>;
 }>;
 
 export type GamesQuery = {
@@ -1061,7 +1062,7 @@ export const ArtworkFragmentDoc = gql`
     alpha_channel
     animated
     image_id
-    url
+    url(imageType: $imageType)
     width
     checksum
   }
@@ -1072,7 +1073,7 @@ export const CoverFragmentDoc = gql`
     alpha_channel
     animated
     image_id
-    url
+    url(imageType: $imageType)
     width
     checksum
   }
@@ -1109,7 +1110,7 @@ export const ScreenshotFragmentDoc = gql`
     alpha_channel
     animated
     image_id
-    url
+    url(imageType: $imageType)
     width
     checksum
   }
@@ -1120,6 +1121,7 @@ export const GamesDocument = gql`
     $sort: GamesSortInput
     $limit: Int
     $offset: Int
+    $imageType: ImageTypeEnum
   ) {
     games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
       ...Game
@@ -1156,6 +1158,7 @@ export const GamesDocument = gql`
  *      sort: // value for 'sort'
  *      limit: // value for 'limit'
  *      offset: // value for 'offset'
+ *      imageType: // value for 'imageType'
  *   },
  * });
  */

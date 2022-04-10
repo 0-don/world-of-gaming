@@ -3,6 +3,7 @@ query Games(
   $sort: GamesSortInput
   $limit: Int
   $offset: Int
+  $imageType: ImageTypeEnum
 ) {
   games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
     ...Game
