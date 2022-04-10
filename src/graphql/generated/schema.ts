@@ -1,10 +1,14 @@
-import { gql } from '@apollo/client';
+import {gql} from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends {[key: string]: unknown}> = {[K in keyof T]: T[K]};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -58,7 +62,7 @@ export enum AgeRatingCategory {
   Null29 = 'NULL29',
   Null30 = 'NULL30',
   Pegi = 'PEGI',
-  Usk = 'USK'
+  Usk = 'USK',
 }
 
 export type AgeRatingContentDescription = {
@@ -171,7 +175,7 @@ export enum AgeRatingRating {
   Usk_0 = 'USK_0',
   Usk_6 = 'USK_6',
   Usk_12 = 'USK_12',
-  Usk_18 = 'USK_18'
+  Usk_18 = 'USK_18',
 }
 
 export type AlternativeName = {
@@ -195,7 +199,6 @@ export type Artwork = {
   url?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['Int']>;
 };
-
 
 export type ArtworkUrlArgs = {
   imageType?: InputMaybe<ImageTypeEnum>;
@@ -248,7 +251,6 @@ export type CompanyLogo = {
   width?: Maybe<Scalars['Int']>;
 };
 
-
 export type CompanyLogoUrlArgs = {
   imageType?: InputMaybe<ImageTypeEnum>;
 };
@@ -275,7 +277,6 @@ export type Cover = {
   width?: Maybe<Scalars['Int']>;
 };
 
-
 export type CoverUrlArgs = {
   imageType?: InputMaybe<ImageTypeEnum>;
 };
@@ -289,7 +290,7 @@ export enum DateFormatChangeDateCategory {
   Yyyyq1 = 'YYYYQ1',
   Yyyyq2 = 'YYYYQ2',
   Yyyyq3 = 'YYYYQ3',
-  Yyyyq4 = 'YYYYQ4'
+  Yyyyq4 = 'YYYYQ4',
 }
 
 export type ExternalGame = {
@@ -341,14 +342,14 @@ export enum ExternalGameCategory {
   ExternalgameOculus = 'EXTERNALGAME_OCULUS',
   ExternalgameSteam = 'EXTERNALGAME_STEAM',
   ExternalgameTwitch = 'EXTERNALGAME_TWITCH',
-  ExternalgameYoutube = 'EXTERNALGAME_YOUTUBE'
+  ExternalgameYoutube = 'EXTERNALGAME_YOUTUBE',
 }
 
 /** External Game Media */
 export enum ExternalGameMedia {
   ExternalgameDigital = 'EXTERNALGAME_DIGITAL',
   ExternalgameMediaNull = 'EXTERNALGAME_MEDIA_NULL',
-  ExternalgamePhysical = 'EXTERNALGAME_PHYSICAL'
+  ExternalgamePhysical = 'EXTERNALGAME_PHYSICAL',
 }
 
 export type FloatFilter = {
@@ -450,7 +451,7 @@ export enum GameCategory {
   Remake = 'REMAKE',
   Remaster = 'REMASTER',
   Season = 'SEASON',
-  StandaloneExpansion = 'STANDALONE_EXPANSION'
+  StandaloneExpansion = 'STANDALONE_EXPANSION',
 }
 
 export type GameEngine = {
@@ -480,7 +481,6 @@ export type GameEngineLogo = {
   width?: Maybe<Scalars['Int']>;
 };
 
-
 export type GameEngineLogoUrlArgs = {
   imageType?: InputMaybe<ImageTypeEnum>;
 };
@@ -505,7 +505,7 @@ export enum GameStatus {
   EarlyAccess = 'EARLY_ACCESS',
   Offline = 'OFFLINE',
   Released = 'RELEASED',
-  Rumored = 'RUMORED'
+  Rumored = 'RUMORED',
 }
 
 export type GameVideo = {
@@ -591,7 +591,7 @@ export enum ImageTypeEnum {
   ScreenshotBig = 'screenshot_big',
   ScreenshotHuge = 'screenshot_huge',
   ScreenshotMed = 'screenshot_med',
-  Thumb = 'thumb'
+  Thumb = 'thumb',
 }
 
 export type IntFilter = {
@@ -680,7 +680,7 @@ export enum PlatformCategory {
   OperatingSystem = 'OPERATING_SYSTEM',
   Platform = 'PLATFORM',
   PlatformCategoryNull = 'PLATFORM_CATEGORY_NULL',
-  PortableConsole = 'PORTABLE_CONSOLE'
+  PortableConsole = 'PORTABLE_CONSOLE',
 }
 
 export type PlatformFamily = {
@@ -702,7 +702,6 @@ export type PlatformLogo = {
   url?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['Int']>;
 };
-
 
 export type PlatformLogoUrlArgs = {
   imageType?: InputMaybe<ImageTypeEnum>;
@@ -814,7 +813,6 @@ export type Query = {
   websites?: Maybe<Array<Website>>;
 };
 
-
 export type QueryGamesArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -834,7 +832,7 @@ export enum RegionRegion {
   NewZealand = 'NEW_ZEALAND',
   NorthAmerica = 'NORTH_AMERICA',
   RegionRegionNull = 'REGION_REGION_NULL',
-  Worldwide = 'WORLDWIDE'
+  Worldwide = 'WORLDWIDE',
 }
 
 export type ReleaseDate = {
@@ -866,14 +864,13 @@ export type Screenshot = {
   width?: Maybe<Scalars['Int']>;
 };
 
-
 export type ScreenshotUrlArgs = {
   imageType?: InputMaybe<ImageTypeEnum>;
 };
 
 export enum SortOrder {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export type StringFilter = {
@@ -930,8 +927,67 @@ export enum WebsiteCategory {
   WebsiteTwitter = 'WEBSITE_TWITTER',
   WebsiteWikia = 'WEBSITE_WIKIA',
   WebsiteWikipedia = 'WEBSITE_WIKIPEDIA',
-  WebsiteYoutube = 'WEBSITE_YOUTUBE'
+  WebsiteYoutube = 'WEBSITE_YOUTUBE',
 }
+
+export type ArtworkFragment = {
+  __typename?: 'Artwork';
+  id?: number | null;
+  alpha_channel?: boolean | null;
+  animated?: boolean | null;
+  image_id?: string | null;
+  url?: string | null;
+  width?: number | null;
+  checksum?: string | null;
+};
+
+export type CoverFragment = {
+  __typename?: 'Cover';
+  id?: number | null;
+  alpha_channel?: boolean | null;
+  animated?: boolean | null;
+  image_id?: string | null;
+  url?: string | null;
+  width?: number | null;
+  checksum?: string | null;
+};
+
+export type GameFragment = {
+  __typename?: 'Game';
+  id?: number | null;
+  aggregated_rating?: number | null;
+  aggregated_rating_count?: number | null;
+  category?: GameCategory | null;
+  created_at?: number | null;
+  first_release_date?: number | null;
+  follows?: number | null;
+  hypes?: number | null;
+  name?: string | null;
+  rating?: number | null;
+  rating_count?: number | null;
+  slug?: string | null;
+  status?: GameStatus | null;
+  storyline?: string | null;
+  summary?: string | null;
+  tags?: Array<number> | null;
+  total_rating?: number | null;
+  total_rating_count?: number | null;
+  updated_at?: number | null;
+  url?: string | null;
+  version_title?: string | null;
+  checksum?: string | null;
+};
+
+export type ScreenshotFragment = {
+  __typename?: 'Screenshot';
+  id?: number | null;
+  alpha_channel?: boolean | null;
+  animated?: boolean | null;
+  image_id?: string | null;
+  url?: string | null;
+  width?: number | null;
+  checksum?: string | null;
+};
 
 export type GamesQueryVariables = Exact<{
   where?: InputMaybe<GamesWhereInput>;
@@ -940,26 +996,102 @@ export type GamesQueryVariables = Exact<{
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
+export type GamesQuery = {
+  __typename?: 'Query';
+  games?: Array<{
+    __typename?: 'Game';
+    id?: number | null;
+    aggregated_rating?: number | null;
+    aggregated_rating_count?: number | null;
+    category?: GameCategory | null;
+    created_at?: number | null;
+    first_release_date?: number | null;
+    follows?: number | null;
+    hypes?: number | null;
+    name?: string | null;
+    rating?: number | null;
+    rating_count?: number | null;
+    slug?: string | null;
+    status?: GameStatus | null;
+    storyline?: string | null;
+    summary?: string | null;
+    tags?: Array<number> | null;
+    total_rating?: number | null;
+    total_rating_count?: number | null;
+    updated_at?: number | null;
+    url?: string | null;
+    version_title?: string | null;
+    checksum?: string | null;
+    screenshots?: Array<{
+      __typename?: 'Screenshot';
+      id?: number | null;
+      alpha_channel?: boolean | null;
+      animated?: boolean | null;
+      image_id?: string | null;
+      url?: string | null;
+      width?: number | null;
+      checksum?: string | null;
+    }> | null;
+    artworks?: Array<{
+      __typename?: 'Artwork';
+      id?: number | null;
+      alpha_channel?: boolean | null;
+      animated?: boolean | null;
+      image_id?: string | null;
+      url?: string | null;
+      width?: number | null;
+      checksum?: string | null;
+    }> | null;
+    cover?: {
+      __typename?: 'Cover';
+      id?: number | null;
+      alpha_channel?: boolean | null;
+      animated?: boolean | null;
+      image_id?: string | null;
+      url?: string | null;
+      width?: number | null;
+      checksum?: string | null;
+    } | null;
+  }> | null;
+};
 
-export type GamesQuery = { __typename?: 'Query', games?: Array<{ __typename?: 'Game', id?: number | null, follows?: number | null, hypes?: number | null, name?: string | null, status?: GameStatus | null, aggregated_rating?: number | null, aggregated_rating_count?: number | null, category?: GameCategory | null, created_at?: number | null, first_release_date?: number | null, rating?: number | null, rating_count?: number | null, slug?: string | null, storyline?: string | null, summary?: string | null, tags?: Array<number> | null, total_rating?: number | null, total_rating_count?: number | null, updated_at?: number | null, url?: string | null, version_title?: string | null, checksum?: string | null }> | null, screenshots?: Array<{ __typename?: 'Screenshot', id?: number | null, alpha_channel?: boolean | null, animated?: boolean | null, image_id?: string | null, url?: string | null, width?: number | null, checksum?: string | null }> | null, artworks?: Array<{ __typename?: 'Artwork', id?: number | null, alpha_channel?: boolean | null, animated?: boolean | null, height?: number | null, image_id?: string | null, url?: string | null, width?: number | null, checksum?: string | null }> | null, covers?: Array<{ __typename?: 'Cover', id?: number | null, animated?: boolean | null, image_id?: string | null, url?: string | null, width?: number | null, checksum?: string | null }> | null };
-
-
-export const GamesDocument = gql`
-    query Games($where: GamesWhereInput, $sort: GamesSortInput, $limit: Int, $offset: Int) {
-  games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+export const ArtworkFragmentDoc = gql`
+  fragment Artwork on Artwork {
     id
-    follows
-    hypes
-    name
-    status
+    alpha_channel
+    animated
+    image_id
+    url
+    width
+    checksum
+  }
+`;
+export const CoverFragmentDoc = gql`
+  fragment Cover on Cover {
+    id
+    alpha_channel
+    animated
+    image_id
+    url
+    width
+    checksum
+  }
+`;
+export const GameFragmentDoc = gql`
+  fragment Game on Game {
+    id
     aggregated_rating
     aggregated_rating_count
     category
     created_at
     first_release_date
+    follows
+    hypes
+    name
     rating
     rating_count
     slug
+    status
     storyline
     summary
     tags
@@ -970,7 +1102,9 @@ export const GamesDocument = gql`
     version_title
     checksum
   }
-  screenshots {
+`;
+export const ScreenshotFragmentDoc = gql`
+  fragment Screenshot on Screenshot {
     id
     alpha_channel
     animated
@@ -979,26 +1113,32 @@ export const GamesDocument = gql`
     width
     checksum
   }
-  artworks {
-    id
-    alpha_channel
-    animated
-    height
-    image_id
-    url
-    width
-    checksum
+`;
+export const GamesDocument = gql`
+  query Games(
+    $where: GamesWhereInput
+    $sort: GamesSortInput
+    $limit: Int
+    $offset: Int
+  ) {
+    games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+      ...Game
+      screenshots {
+        ...Screenshot
+      }
+      artworks {
+        ...Artwork
+      }
+      cover {
+        ...Cover
+      }
+    }
   }
-  covers {
-    id
-    animated
-    image_id
-    url
-    width
-    checksum
-  }
-}
-    `;
+  ${GameFragmentDoc}
+  ${ScreenshotFragmentDoc}
+  ${ArtworkFragmentDoc}
+  ${CoverFragmentDoc}
+`;
 
 /**
  * __useGamesQuery__
@@ -1019,14 +1159,27 @@ export const GamesDocument = gql`
  *   },
  * });
  */
-export function useGamesQuery(baseOptions?: Apollo.QueryHookOptions<GamesQuery, GamesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GamesQuery, GamesQueryVariables>(GamesDocument, options);
-      }
-export function useGamesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GamesQuery, GamesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GamesQuery, GamesQueryVariables>(GamesDocument, options);
-        }
+export function useGamesQuery(
+  baseOptions?: Apollo.QueryHookOptions<GamesQuery, GamesQueryVariables>,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<GamesQuery, GamesQueryVariables>(
+    GamesDocument,
+    options,
+  );
+}
+export function useGamesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GamesQuery, GamesQueryVariables>,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<GamesQuery, GamesQueryVariables>(
+    GamesDocument,
+    options,
+  );
+}
 export type GamesQueryHookResult = ReturnType<typeof useGamesQuery>;
 export type GamesLazyQueryHookResult = ReturnType<typeof useGamesLazyQuery>;
-export type GamesQueryResult = Apollo.QueryResult<GamesQuery, GamesQueryVariables>;
+export type GamesQueryResult = Apollo.QueryResult<
+  GamesQuery,
+  GamesQueryVariables
+>;

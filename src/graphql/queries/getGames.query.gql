@@ -1,0 +1,19 @@
+query Games(
+  $where: GamesWhereInput
+  $sort: GamesSortInput
+  $limit: Int
+  $offset: Int
+) {
+  games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+    ...Game
+    screenshots {
+      ...Screenshot
+    }
+    artworks {
+      ...Artwork
+    }
+    cover {
+      ...Cover
+    }
+  }
+}

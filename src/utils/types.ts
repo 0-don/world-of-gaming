@@ -1,4 +1,4 @@
-import {GamesQuery} from '../graphql/generated/graphql';
+import {GamesQuery} from '../graphql/generated/schema';
 
 export type ArrayElement<ArrayType extends unknown[] | undefined | null> =
   ArrayType extends (infer ElementType)[] ? ElementType : never;

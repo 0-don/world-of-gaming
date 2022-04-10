@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {useGamesLazyQuery} from '../graphql/generated/graphql';
+import {useGamesLazyQuery} from '../graphql/generated/schema';
 import useGamesStore from '../store/GamesStore';
 import {Input} from './elements/Input';
 

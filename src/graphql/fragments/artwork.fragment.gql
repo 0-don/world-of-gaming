@@ -1,0 +1,9 @@
+fragment Artwork on Artwork {
+  id
+  alpha_channel
+  animated
+  image_id
+  url
+  width
+  checksum
+}
