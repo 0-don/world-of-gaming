@@ -2,14 +2,14 @@
   position: relative
 }
 
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem
-}
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem
 }
 
 .mt-2 {
@@ -79,6 +79,11 @@
   background-color: rgb(24 24 27 / var(--tw-bg-opacity))
 }
 
+.bg-dark-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 14 16 / var(--tw-bg-opacity))
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity))
@@ -89,11 +94,6 @@
   background-color: rgb(70 70 73 / var(--tw-bg-opacity))
 }
 
-.bg-dark-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 14 16 / var(--tw-bg-opacity))
-}
-
 .pl-1\.5 {
   padding-left: 0.375rem
 }
@@ -102,20 +102,8 @@
   padding-left: 0.25rem
 }
 
-.font-objektiv-mk1-regular {
-  font-family: Objektiv_Mk1_Regular
-}
-
 .font-objektiv-mk1-bold {
   font-family: Objektiv_Mk1_Bold
-}
-
-.font-sf-pro-display-regular {
-  font-family: SF_Pro_Display_Regular
-}
-
-.font-objektiv-mk1-thin {
-  font-family: Objektiv_Mk1_Thin
 }
 
 .font-objektiv-mk1-light {

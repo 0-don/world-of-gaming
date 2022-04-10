@@ -547,7 +547,7 @@ export type GamesWhereInput = {
   OR?: InputMaybe<Array<GamesWhereInput>>;
   aggregated_rating?: InputMaybe<FloatFilter>;
   aggregated_rating_count?: InputMaybe<IntFilter>;
-  category?: InputMaybe<StringFilter>;
+  category?: InputMaybe<GameCategory>;
   checksum?: InputMaybe<StringFilter>;
   created_at?: InputMaybe<IntFilter>;
   first_release_date?: InputMaybe<IntFilter>;
