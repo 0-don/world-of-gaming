@@ -1,7 +1,8 @@
 import React from 'react';
 import {FlatList, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {BackgroundImage} from '../components/containers/BackgroundImage';
+// import {BackgroundImage} from '../components/containers/BackgroundImage';
+import {SafeArea} from '../components/containers/SafeArea';
 import {FlatListLoader} from '../components/FlatListLoader';
 import {GameCard} from '../components/GameCard';
 import {Search} from '../components/Search';
@@ -14,19 +15,22 @@ export const Games: React.FC<GamesProps> = ({}) => {
   const {loading, games} = useGamesStore();
 
   return (
-    <BackgroundImage safeArea>
-      <View style={tailwind('mx-6')}>
-        <Search />
+    <SafeArea style={tailwind('bg-dark-dark')}>
+      {/* <BackgroundImage safeArea></BackgroundImage> */}
+      <View>
+        <Search style={tailwind('mx-6')} />
         {loading ? (
           <FlatListLoader />
         ) : (
           <FlatList
+            style={tailwind('mt-2')}
             data={games}
             renderItem={({item}) => <GameCard game={item} />}
             keyExtractor={item => item!.slug!}
           />
         )}
       </View>
-    </BackgroundImage>
+      {/* </BackgroundImage> */}
+    </SafeArea>
   );
 };

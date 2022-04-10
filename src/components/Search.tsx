@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
+import {View, ViewStyle} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {ImageTypeEnum, useGamesLazyQuery} from '../graphql/generated/schema';
 import useGamesStore from '../store/GamesStore';
 import {Input} from './elements/Input';
 
-interface SearchProps {}
+interface SearchProps {
+  style?: ViewStyle;
+}
 
-export const Search: React.FC<SearchProps> = ({}) => {
+export const Search: React.FC<SearchProps> = ({style}) => {
   const tailwind = useTailwind();
   const {setGames, setLoading, search, setSearch} = useGamesStore();
   const [games] = useGamesLazyQuery();
@@ -28,12 +30,8 @@ export const Search: React.FC<SearchProps> = ({}) => {
     fetchGames();
   }, [search, games, setGames, setLoading]);
 
-  // useEffect(() => {
-  //   console.log(loading);
-  // }, [setLoading, loading]);
-
   return (
-    <View style={tailwind('')}>
+    <View style={{...style, ...tailwind('')}}>
       <Input value={search} onChangeText={setSearch} />
     </View>
   );

@@ -35,7 +35,7 @@ export const Input: React.FC<InputProps> = ({
         <TextInput
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
-          style={tailwind('w-11/12 text-white')}
+          style={tailwind('w-11/12 font-objektiv-mk1-light text-white')}
           placeholder={placeholder}
           onChangeText={onChangeText}
           selectionColor={'#9147ff'}
