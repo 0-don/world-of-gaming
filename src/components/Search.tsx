@@ -10,22 +10,24 @@ interface SearchProps {}
 export const Search: React.FC<SearchProps> = ({}) => {
   const tailwind = useTailwind();
   const {setGames, setLoading, search, setSearch} = useGamesStore();
-  const [games, {loading}] = useGamesLazyQuery();
+  const [games] = useGamesLazyQuery();
 
   useEffect(() => {
     const fetchGames = async () => {
+      setLoading(true);
       const {data} = await games({
         variables: {where: {name: {contains: search}}},
       });
 
       setGames(data?.games);
+      setLoading(false);
     };
     fetchGames();
-  }, [search, games, setGames]);
+  }, [search, games, setGames, setLoading]);
 
-  useEffect(() => {
-    setLoading(loading);
-  }, [setLoading, loading]);
+  // useEffect(() => {
+  //   console.log(loading);
+  // }, [setLoading, loading]);
 
   return (
     <View style={tailwind('')}>

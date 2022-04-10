@@ -15,11 +15,15 @@ type GamesStore = {
 const useGamesStore = create<GamesStore>(
   immer(
     (set): GamesStore => ({
-      search: '',
+      search: 'god',
       games: undefined,
       loading: false,
       setSearch: search => set(state => void (state.search = search)),
-      setGames: games => set(state => void (state.games = games)),
+      setGames: games =>
+        set(state => {
+          state.games = games;
+          state.setLoading(false);
+        }),
       setLoading: loading => set(state => void (state.loading = loading)),
     }),
   ),

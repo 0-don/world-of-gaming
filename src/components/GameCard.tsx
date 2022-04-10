@@ -1,15 +1,17 @@
 import React from 'react';
-import {ListRenderItem, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {GamesQueryType} from '../utils/types';
 
-export const GameCard: ListRenderItem<GamesQueryType> = ({
-  item,
-}): JSX.Element => {
+interface GameCardProps {
+  game: GamesQueryType;
+}
+
+export const GameCard: React.FC<GameCardProps> = ({game}) => {
   const tailwind = useTailwind();
   return (
     <View style={tailwind('bg-dark')}>
-      <Text>{item?.name ?? ''}</Text>
+      <Text style={tailwind('text-white')}>{game?.name}</Text>
     </View>
   );
 };

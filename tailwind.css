@@ -61,6 +61,11 @@
   border-color: rgb(94 94 96 / var(--tw-border-opacity))
 }
 
+.bg-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity))
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity))
@@ -71,17 +76,16 @@
   background-color: rgb(70 70 73 / var(--tw-bg-opacity))
 }
 
-.bg-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(24 24 27 / var(--tw-bg-opacity))
-}
-
 .pl-1\.5 {
   padding-left: 0.375rem
 }
 
 .pl-1 {
   padding-left: 0.25rem
+}
+
+.text-center {
+  text-align: center
 }
 
 .text-white {
