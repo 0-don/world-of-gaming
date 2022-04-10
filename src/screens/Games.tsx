@@ -23,7 +23,8 @@ export const Games: React.FC<GamesProps> = ({}) => {
           <FlatListLoader />
         ) : (
           <FlatList
-            style={tailwind('mt-2')}
+            contentContainerStyle={tailwind('pb-12')}
+            style={tailwind('mt-2 pb-5')}
             data={games}
             renderItem={({item}) => <GameCard game={item} />}
             keyExtractor={item => item!.slug!}

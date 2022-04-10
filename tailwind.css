@@ -24,6 +24,14 @@
   height: 2.5rem
 }
 
+.h-24 {
+  height: 6rem
+}
+
+.h-12 {
+  height: 3rem
+}
+
 .w-24 {
   width: 6rem
 }
@@ -102,12 +110,48 @@
   padding-left: 0.25rem
 }
 
+.pb-5 {
+  padding-bottom: 1.25rem
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem
+}
+
+.pb-7 {
+  padding-bottom: 1.75rem
+}
+
+.pb-8 {
+  padding-bottom: 2rem
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem
+}
+
+.pb-12 {
+  padding-bottom: 3rem
+}
+
 .font-objektiv-mk1-bold {
   font-family: Objektiv_Mk1_Bold
 }
 
 .font-objektiv-mk1-light {
   font-family: Objektiv_Mk1_Light
+}
+
+.font-objektiv-mk1-thin {
+  font-family: Objektiv_Mk1_Thin
+}
+
+.font-objektiv-mk1-regular {
+  font-family: Objektiv_Mk1_Regular
 }
 
 .text-white {
@@ -121,4 +165,8 @@
 
 .\[aspectRatio\:1\] {
   aspect-ratio: 1
+}
+
+.\[width\:undefined\] {
+  width: undefined
 }
