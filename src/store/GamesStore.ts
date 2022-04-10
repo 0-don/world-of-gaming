@@ -15,7 +15,7 @@ type GamesStore = {
 const useGamesStore = create<GamesStore>(
   immer(
     (set): GamesStore => ({
-      search: 'god',
+      search: 'god of war',
       games: undefined,
       loading: false,
       setSearch: search => set(state => void (state.search = search)),

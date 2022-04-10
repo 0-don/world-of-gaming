@@ -11,7 +11,7 @@
     "build": "yarn build:tailwind && npx react-native run-android --variant=release",
     "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\"",
-    "gen": "graphql-codegen --config codegen.js"
+    "gen": "graphql-codegen --require dotenv/config"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -35,7 +35,6 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@graphql-codegen/cli": "^2.6.2",
-    "@graphql-codegen/named-operations-object": "^2.2.1",
     "@graphql-codegen/typescript": "^2.4.8",
     "@graphql-codegen/typescript-operations": "^2.3.5",
     "@graphql-codegen/typescript-react-apollo": "^3.2.11",

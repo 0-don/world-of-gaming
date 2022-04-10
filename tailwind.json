@@ -119,11 +119,6 @@
 			"paddingLeft": 4
 		}
 	},
-	"text-center": {
-		"style": {
-			"textAlign": "center"
-		}
-	},
 	"text-white": {
 		"style": {
 			"--tw-text-opacity": 1,

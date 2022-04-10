@@ -9,6 +9,7 @@ interface GameCardProps {
 
 export const GameCard: React.FC<GameCardProps> = ({game}) => {
   const tailwind = useTailwind();
+  console.log(game.screenshots);
   return (
     <View style={tailwind('bg-dark')}>
       <Text style={tailwind('text-white')}>{game?.name}</Text>

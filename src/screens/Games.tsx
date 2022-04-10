@@ -13,8 +13,6 @@ export const Games: React.FC<GamesProps> = ({}) => {
   const tailwind = useTailwind();
   const {loading, games} = useGamesStore();
 
-  console.log(loading, games?.length);
-
   return (
     <BackgroundImage safeArea>
       <View style={tailwind('mx-6')}>
