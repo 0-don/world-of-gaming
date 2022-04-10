@@ -1,36 +1,32 @@
 import React from 'react';
-import {FlatList} from 'react-native';
-import ContentLoader, {Circle, Rect} from 'react-content-loader/native';
+import {FlatList, View} from 'react-native';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {GameCard} from '../components/GameCard';
 import {Search} from '../components/Search';
 import useGamesStore from '../store/GamesStore';
+import {FlatListLoader} from '../components/FlatListLoader';
+import {useTailwind} from 'tailwind-rn/dist';
 
 interface GamesProps {}
 
 export const Games: React.FC<GamesProps> = ({}) => {
+  const tailwind = useTailwind();
   const {loading, games} = useGamesStore();
 
   return (
     <BackgroundImage safeArea>
-      <Search />
-      {!loading ? (
-        <ContentLoader
-          viewBox="0 0 380 70"
-          speed={0.5}
-          backgroundColor={'#333'}
-          foregroundColor={'#999'}>
-          <Circle cx="30" cy="30" r="30" />
-          <Rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
-          <Rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
-        </ContentLoader>
-      ) : (
-        <FlatList
-          data={games}
-          renderItem={GameCard}
-          keyExtractor={item => item!.slug!}
-        />
-      )}
+      <View style={tailwind('mx-6')}>
+        <Search />
+        {loading ? (
+          <FlatListLoader />
+        ) : (
+          <FlatList
+            data={games}
+            renderItem={GameCard}
+            keyExtractor={item => item!.slug!}
+          />
+        )}
+      </View>
     </BackgroundImage>
   );
 };

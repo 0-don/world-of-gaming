@@ -71,6 +71,11 @@
   background-color: rgb(70 70 73 / var(--tw-bg-opacity))
 }
 
+.bg-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity))
+}
+
 .pl-1\.5 {
   padding-left: 0.375rem
 }

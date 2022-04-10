@@ -28,7 +28,7 @@ export const Search: React.FC<SearchProps> = ({}) => {
   }, [setLoading, loading]);
 
   return (
-    <View style={tailwind('mx-6')}>
+    <View style={tailwind('')}>
       <Input value={search} onChangeText={setSearch} />
     </View>
   );

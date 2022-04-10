@@ -103,6 +103,12 @@
 			"backgroundColor": "rgb(70 70 73 / var(--tw-bg-opacity))"
 		}
 	},
+	"bg-dark": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(24 24 27 / var(--tw-bg-opacity))"
+		}
+	},
 	"pl-1.5": {
 		"style": {
 			"paddingLeft": 6

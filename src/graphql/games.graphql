@@ -1,4 +1,9 @@
-query Games($where: GamesWhereInput, $sort: GamesSortInput, $limit: Int, $offset: Int) {
+query Games(
+  $where: GamesWhereInput
+  $sort: GamesSortInput
+  $limit: Int
+  $offset: Int
+) {
   games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
     id
     follows
@@ -21,6 +26,33 @@ query Games($where: GamesWhereInput, $sort: GamesSortInput, $limit: Int, $offset
     updated_at
     url
     version_title
+    checksum
+  }
+  screenshots {
+    id
+    alpha_channel
+    animated
+    image_id
+    url
+    width
+    checksum
+  }
+  artworks {
+    id
+    alpha_channel
+    animated
+    height
+    image_id
+    url
+    width
+    checksum
+  }
+  covers {
+    id
+    animated
+    image_id
+    url
+    width
     checksum
   }
 }
