@@ -4,6 +4,7 @@ query Games(
   $limit: Int
   $offset: Int
   $imageType: ImageTypeEnum
+  $platformLogo: ImageTypeEnum
 ) {
   games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
     ...Game
@@ -15,6 +16,12 @@ query Games(
     }
     cover {
       ...Cover
+    }
+    platforms {
+      ...Platform
+      platform_logo {
+        ...PlatformLogo
+      }
     }
   }
 }

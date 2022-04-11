@@ -16,6 +16,10 @@
   margin-top: 0.5rem
 }
 
+.mr-1 {
+  margin-right: 0.25rem
+}
+
 .flex {
   display: flex
 }
@@ -26,6 +30,18 @@
 
 .h-10 {
   height: 2.5rem
+}
+
+.h-6 {
+  height: 1.5rem
+}
+
+.h-12 {
+  height: 3rem
+}
+
+.h-8 {
+  height: 2rem
 }
 
 .w-24 {
@@ -42,6 +58,14 @@
 
 .w-11\/12 {
   width: 91.666667%
+}
+
+.w-6 {
+  width: 1.5rem
+}
+
+.w-12 {
+  width: 3rem
 }
 
 .flex-1 {
@@ -62,6 +86,10 @@
 
 .rounded-md {
   border-radius: 0.375rem
+}
+
+.rounded-xl {
+  border-radius: 0.75rem
 }
 
 .border {
@@ -98,6 +126,19 @@
   background-color: rgb(70 70 73 / var(--tw-bg-opacity))
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+}
+
+.p-2 {
+  padding: 0.5rem
+}
+
+.p-1 {
+  padding: 0.25rem
+}
+
 .pb-12 {
   padding-bottom: 3rem
 }
@@ -131,6 +172,10 @@
   color: rgb(255 255 255 / var(--tw-text-opacity))
 }
 
+.opacity-50 {
+  opacity: 0.5
+}
+
 .\[height\:undefined\] {
   height: undefined
 }
@@ -141,4 +186,8 @@
 
 .\[width\:undefined\] {
   width: undefined
+}
+
+.\[width\:23\] {
+  width: 23
 }

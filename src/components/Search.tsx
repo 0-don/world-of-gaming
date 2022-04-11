@@ -36,6 +36,7 @@ export const Search: React.FC<SearchProps> = ({style}) => {
           sort: {follows: SortOrder.Desc},
           limit: 10,
           imageType: ImageTypeEnum.CoverBig,
+          platformLogo: ImageTypeEnum.CoverSmall,
         },
       });
 

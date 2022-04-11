@@ -1,0 +1,3 @@
+fragment Platform on Platform {
+  name
+}

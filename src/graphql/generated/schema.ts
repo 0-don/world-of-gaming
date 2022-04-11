@@ -978,6 +978,13 @@ export type GameFragment = {
   checksum?: string | null;
 };
 
+export type PlatformFragment = {__typename?: 'Platform'; name?: string | null};
+
+export type PlatformLogoFragment = {
+  __typename?: 'PlatformLogo';
+  url?: string | null;
+};
+
 export type ScreenshotFragment = {
   __typename?: 'Screenshot';
   id?: number | null;
@@ -995,6 +1002,7 @@ export type GamesQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
   imageType?: InputMaybe<ImageTypeEnum>;
+  platformLogo?: InputMaybe<ImageTypeEnum>;
 }>;
 
 export type GamesQuery = {
@@ -1053,6 +1061,11 @@ export type GamesQuery = {
       width?: number | null;
       checksum?: string | null;
     } | null;
+    platforms?: Array<{
+      __typename?: 'Platform';
+      name?: string | null;
+      platform_logo?: {__typename?: 'PlatformLogo'; url?: string | null} | null;
+    }> | null;
   }> | null;
 };
 
@@ -1104,6 +1117,16 @@ export const GameFragmentDoc = gql`
     checksum
   }
 `;
+export const PlatformFragmentDoc = gql`
+  fragment Platform on Platform {
+    name
+  }
+`;
+export const PlatformLogoFragmentDoc = gql`
+  fragment PlatformLogo on PlatformLogo {
+    url(imageType: $platformLogo)
+  }
+`;
 export const ScreenshotFragmentDoc = gql`
   fragment Screenshot on Screenshot {
     id
@@ -1122,6 +1145,7 @@ export const GamesDocument = gql`
     $limit: Int
     $offset: Int
     $imageType: ImageTypeEnum
+    $platformLogo: ImageTypeEnum
   ) {
     games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
       ...Game
@@ -1134,12 +1158,20 @@ export const GamesDocument = gql`
       cover {
         ...Cover
       }
+      platforms {
+        ...Platform
+        platform_logo {
+          ...PlatformLogo
+        }
+      }
     }
   }
   ${GameFragmentDoc}
   ${ScreenshotFragmentDoc}
   ${ArtworkFragmentDoc}
   ${CoverFragmentDoc}
+  ${PlatformFragmentDoc}
+  ${PlatformLogoFragmentDoc}
 `;
 
 /**
@@ -1159,6 +1191,7 @@ export const GamesDocument = gql`
  *      limit: // value for 'limit'
  *      offset: // value for 'offset'
  *      imageType: // value for 'imageType'
+ *      platformLogo: // value for 'platformLogo'
  *   },
  * });
  */
