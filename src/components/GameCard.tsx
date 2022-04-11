@@ -5,6 +5,7 @@ import {Image, Text, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {GamesQueryType} from '../utils/types';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
 dayjs.extend(localizedFormat);
 interface GameCardProps {
@@ -12,7 +13,15 @@ interface GameCardProps {
 }
 
 export const GameCard: React.FC<GameCardProps> = ({
-  game: {cover, artworks, screenshots, first_release_date, name, platforms},
+  game: {
+    cover,
+    artworks,
+    screenshots,
+    first_release_date,
+    name,
+    platforms,
+    aggregated_rating,
+  },
 }) => {
   const tailwind = useTailwind();
 
@@ -26,6 +35,7 @@ export const GameCard: React.FC<GameCardProps> = ({
 
     return logos?.map(logo => (
       <View
+        key={logo}
         style={{
           backgroundColor: 'rgba(255,255,255,0.25)',
           ...tailwind('mr-1 rounded-md p-1'),
@@ -33,7 +43,6 @@ export const GameCard: React.FC<GameCardProps> = ({
         <Image
           resizeMode="contain"
           style={tailwind('h-5 [width:undefined] [aspectRatio:1]')}
-          key={logo}
           source={{uri: logo || ''}}
         />
       </View>
@@ -41,6 +50,18 @@ export const GameCard: React.FC<GameCardProps> = ({
   };
 
   const img = cover || artwork || screenshot;
+
+  const color = (rating: number) => {
+    if (rating) {
+      if (rating >= 75) {
+        return '#66cc33';
+      } else if (rating >= 50) {
+        return '#ffcc33';
+      } else {
+        return '#ff0000';
+      }
+    }
+  };
 
   return (
     <View style={tailwind('mx-5 mt-2')}>
@@ -67,7 +88,21 @@ export const GameCard: React.FC<GameCardProps> = ({
               </Text>
             )}
           </View>
-          <View style={tailwind('flex-row')}>{platformLogos()}</View>
+          <View style={tailwind('flex-row items-center justify-between')}>
+            <View style={tailwind('flex-row')}>{platformLogos()}</View>
+            {aggregated_rating && (
+              <CircularProgress
+                value={aggregated_rating}
+                radius={30}
+                maxValue={100}
+                activeStrokeColor={color(aggregated_rating)}
+                inActiveStrokeColor={'black'}
+                activeStrokeWidth={6}
+                progressValueColor={color(aggregated_rating)}
+                duration={2000}
+              />
+            )}
+          </View>
         </View>
       </View>
     </View>
