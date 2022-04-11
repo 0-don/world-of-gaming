@@ -74,35 +74,39 @@ export const GameCard: React.FC<GameCardProps> = ({
           />
         )}
         <View style={tailwind('flex-1 justify-between')}>
-          <View>
-            <Text
-              numberOfLines={1}
-              ellipsizeMode="tail"
-              style={tailwind('font-objektiv-mk1-bold text-white')}>
-              {name}
-            </Text>
-            {first_release_date && (
-              <Text
-                style={tailwind('mt-0.5 font-objektiv-mk1-regular text-white')}>
-                release: {dayjs.unix(first_release_date).format('LL')}
-              </Text>
-            )}
-          </View>
           <View style={tailwind('flex-row items-center justify-between')}>
-            <View style={tailwind('flex-row')}>{platformLogos()}</View>
+            <View>
+              <Text
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                style={tailwind('w-52 font-objektiv-mk1-bold text-white')}>
+                {name}
+              </Text>
+              {first_release_date && (
+                <Text
+                  style={tailwind(
+                    'mt-0.5 font-objektiv-mk1-regular text-white',
+                  )}>
+                  release: {dayjs.unix(first_release_date).format('LL')}
+                </Text>
+              )}
+            </View>
             {aggregated_rating && (
-              <CircularProgress
-                value={aggregated_rating}
-                radius={30}
-                maxValue={100}
-                activeStrokeColor={color(aggregated_rating)}
-                inActiveStrokeColor={'black'}
-                activeStrokeWidth={6}
-                progressValueColor={color(aggregated_rating)}
-                duration={2000}
-              />
+              <View style={tailwind('mr-3')}>
+                <CircularProgress
+                  value={aggregated_rating}
+                  radius={27.5}
+                  maxValue={100}
+                  activeStrokeColor={color(aggregated_rating)}
+                  inActiveStrokeColor={'black'}
+                  activeStrokeWidth={6}
+                  progressValueColor={color(aggregated_rating)}
+                  duration={2000}
+                />
+              </View>
             )}
           </View>
+          <View style={tailwind('flex-row')}>{platformLogos()}</View>
         </View>
       </View>
     </View>

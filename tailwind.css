@@ -33,6 +33,14 @@
   margin-top: 0px
 }
 
+.mr-2 {
+  margin-right: 0.5rem
+}
+
+.mr-3 {
+  margin-right: 0.75rem
+}
+
 .flex {
   display: flex
 }
@@ -59,6 +67,26 @@
 
 .w-11\/12 {
   width: 91.666667%
+}
+
+.w-64 {
+  width: 16rem
+}
+
+.w-32 {
+  width: 8rem
+}
+
+.w-4 {
+  width: 1rem
+}
+
+.w-48 {
+  width: 12rem
+}
+
+.w-52 {
+  width: 13rem
 }
 
 .flex-1 {
