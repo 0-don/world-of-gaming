@@ -26,8 +26,11 @@ export const Search: React.FC<SearchProps> = ({style}) => {
         variables: {
           where: {
             AND: [
-              {name: {contains: search}, category: GameCategory.MainGame},
-              {follows: {gte: 2}},
+              {
+                name: {contains: search},
+                category: GameCategory.MainGame,
+                follows: {gte: 2},
+              },
             ],
           },
           sort: {follows: SortOrder.Desc},
