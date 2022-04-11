@@ -932,24 +932,16 @@ export enum WebsiteCategory {
 
 export type ArtworkFragment = {
   __typename?: 'Artwork';
-  id?: number | null;
-  alpha_channel?: boolean | null;
-  animated?: boolean | null;
-  image_id?: string | null;
   url?: string | null;
   width?: number | null;
-  checksum?: string | null;
+  height?: number | null;
 };
 
 export type CoverFragment = {
   __typename?: 'Cover';
-  id?: number | null;
-  alpha_channel?: boolean | null;
-  animated?: boolean | null;
-  image_id?: string | null;
   url?: string | null;
   width?: number | null;
-  checksum?: string | null;
+  height?: number | null;
 };
 
 export type GameFragment = {
@@ -983,17 +975,15 @@ export type PlatformFragment = {__typename?: 'Platform'; name?: string | null};
 export type PlatformLogoFragment = {
   __typename?: 'PlatformLogo';
   url?: string | null;
+  height?: number | null;
+  width?: number | null;
 };
 
 export type ScreenshotFragment = {
   __typename?: 'Screenshot';
-  id?: number | null;
-  alpha_channel?: boolean | null;
-  animated?: boolean | null;
-  image_id?: string | null;
   url?: string | null;
   width?: number | null;
-  checksum?: string | null;
+  height?: number | null;
 };
 
 export type GamesQueryVariables = Exact<{
@@ -1033,62 +1023,47 @@ export type GamesQuery = {
     checksum?: string | null;
     screenshots?: Array<{
       __typename?: 'Screenshot';
-      id?: number | null;
-      alpha_channel?: boolean | null;
-      animated?: boolean | null;
-      image_id?: string | null;
       url?: string | null;
       width?: number | null;
-      checksum?: string | null;
+      height?: number | null;
     }> | null;
     artworks?: Array<{
       __typename?: 'Artwork';
-      id?: number | null;
-      alpha_channel?: boolean | null;
-      animated?: boolean | null;
-      image_id?: string | null;
       url?: string | null;
       width?: number | null;
-      checksum?: string | null;
+      height?: number | null;
     }> | null;
     cover?: {
       __typename?: 'Cover';
-      id?: number | null;
-      alpha_channel?: boolean | null;
-      animated?: boolean | null;
-      image_id?: string | null;
       url?: string | null;
       width?: number | null;
-      checksum?: string | null;
+      height?: number | null;
     } | null;
     platforms?: Array<{
       __typename?: 'Platform';
       name?: string | null;
-      platform_logo?: {__typename?: 'PlatformLogo'; url?: string | null} | null;
+      platform_logo?: {
+        __typename?: 'PlatformLogo';
+        url?: string | null;
+        height?: number | null;
+        width?: number | null;
+      } | null;
     }> | null;
   }> | null;
 };
 
 export const ArtworkFragmentDoc = gql`
   fragment Artwork on Artwork {
-    id
-    alpha_channel
-    animated
-    image_id
     url(imageType: $imageType)
     width
-    checksum
+    height
   }
 `;
 export const CoverFragmentDoc = gql`
   fragment Cover on Cover {
-    id
-    alpha_channel
-    animated
-    image_id
     url(imageType: $imageType)
     width
-    checksum
+    height
   }
 `;
 export const GameFragmentDoc = gql`
@@ -1125,17 +1100,15 @@ export const PlatformFragmentDoc = gql`
 export const PlatformLogoFragmentDoc = gql`
   fragment PlatformLogo on PlatformLogo {
     url(imageType: $platformLogo)
+    height
+    width
   }
 `;
 export const ScreenshotFragmentDoc = gql`
   fragment Screenshot on Screenshot {
-    id
-    alpha_channel
-    animated
-    image_id
     url(imageType: $imageType)
     width
-    checksum
+    height
   }
 `;
 export const GamesDocument = gql`

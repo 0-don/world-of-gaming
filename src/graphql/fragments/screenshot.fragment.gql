@@ -1,9 +1,5 @@
 fragment Screenshot on Screenshot {
-  id
-  alpha_channel
-  animated
-  image_id
   url(imageType: $imageType)
   width
-  checksum
+  height
 }

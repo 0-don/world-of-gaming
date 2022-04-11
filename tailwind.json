@@ -16,6 +16,12 @@
 			"marginRight": 24
 		}
 	},
+	"mx-2": {
+		"style": {
+			"marginLeft": 8,
+			"marginRight": 8
+		}
+	},
 	"mt-2": {
 		"style": {
 			"marginTop": 8
@@ -26,9 +32,49 @@
 			"marginRight": 4
 		}
 	},
+	"mt-4": {
+		"style": {
+			"marginTop": 16
+		}
+	},
+	"ml-1": {
+		"style": {
+			"marginLeft": 4
+		}
+	},
+	"ml-2": {
+		"style": {
+			"marginLeft": 8
+		}
+	},
+	"mt-3": {
+		"style": {
+			"marginTop": 12
+		}
+	},
+	"mt-1": {
+		"style": {
+			"marginTop": 4
+		}
+	},
+	"mt-0.5": {
+		"style": {
+			"marginTop": 2
+		}
+	},
+	"mt-0": {
+		"style": {
+			"marginTop": 0
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
+		}
+	},
+	"hidden": {
+		"style": {
+			"display": "none"
 		}
 	},
 	"h-24": {
@@ -54,6 +100,16 @@
 	"h-8": {
 		"style": {
 			"height": 32
+		}
+	},
+	"h-5": {
+		"style": {
+			"height": 20
+		}
+	},
+	"h-20": {
+		"style": {
+			"height": 80
 		}
 	},
 	"w-24": {
@@ -86,6 +142,21 @@
 			"width": 48
 		}
 	},
+	"w-2": {
+		"style": {
+			"width": 8
+		}
+	},
+	"w-20": {
+		"style": {
+			"width": 80
+		}
+	},
+	"w-10": {
+		"style": {
+			"width": 40
+		}
+	},
 	"flex-1": {
 		"style": {
 			"flexGrow": 1,
@@ -108,6 +179,16 @@
 			"alignItems": "center"
 		}
 	},
+	"justify-between": {
+		"style": {
+			"justifyContent": "space-between"
+		}
+	},
+	"overflow-hidden": {
+		"style": {
+			"overflow": "hidden"
+		}
+	},
 	"rounded-md": {
 		"style": {
 			"borderTopLeftRadius": 6,
@@ -122,6 +203,14 @@
 			"borderTopRightRadius": 12,
 			"borderBottomRightRadius": 12,
 			"borderBottomLeftRadius": 12
+		}
+	},
+	"rounded-sm": {
+		"style": {
+			"borderTopLeftRadius": 2,
+			"borderTopRightRadius": 2,
+			"borderBottomRightRadius": 2,
+			"borderBottomLeftRadius": 2
 		}
 	},
 	"border": {
@@ -196,6 +285,12 @@
 			"paddingLeft": 4
 		}
 	},
+	"py-2": {
+		"style": {
+			"paddingTop": 8,
+			"paddingBottom": 8
+		}
+	},
 	"pb-12": {
 		"style": {
 			"paddingBottom": 48
@@ -256,6 +351,26 @@
 	"[width:23]": {
 		"style": {
 			"width": 23
+		}
+	},
+	"[aspectRatio:2]": {
+		"style": {
+			"aspectRatio": 2
+		}
+	},
+	"[aspectRatio:0]": {
+		"style": {
+			"aspectRatio": 0
+		}
+	},
+	"[aspectRatio:0.5]": {
+		"style": {
+			"aspectRatio": 0.5
+		}
+	},
+	"[aspectRatio:0.75]": {
+		"style": {
+			"aspectRatio": 0.75
 		}
 	}
 }

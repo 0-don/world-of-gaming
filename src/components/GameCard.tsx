@@ -23,7 +23,7 @@ export const GameCard: React.FC<GameCardProps> = ({
     const logos = platforms
       ?.filter(({platform_logo}) => platform_logo?.url)
       .map(({platform_logo}) => platform_logo?.url?.replace?.('.jpg', '.png'));
-    console.log(logos);
+
     return logos?.map(logo => (
       <View
         style={{
@@ -32,7 +32,7 @@ export const GameCard: React.FC<GameCardProps> = ({
         }}>
         <Image
           resizeMode="contain"
-          style={tailwind('h-6 [width:undefined] [aspectRatio:1]')}
+          style={tailwind('h-5 [width:undefined] [aspectRatio:1]')}
           key={logo}
           source={{uri: logo || ''}}
         />
@@ -40,30 +40,34 @@ export const GameCard: React.FC<GameCardProps> = ({
     ));
   };
 
+  const img = cover || artwork || screenshot;
+
   return (
     <View style={tailwind('mx-5 mt-2')}>
-      <View style={tailwind('flex-row bg-dark')}>
-        <Image
-          source={{
-            uri: cover?.url || artwork?.url || screenshot?.url || '',
-          }}
-          resizeMode="contain"
-          // style={tailwind('w-24 [height:undefined] [aspectRatio:1]')}
-          style={tailwind('h-24 [width:undefined] [aspectRatio:1]')}
-        />
-        <View>
-          <Text
-            numberOfLines={1}
-            ellipsizeMode="tail"
-            style={tailwind('font-objektiv-mk1-bold text-white')}>
-            {name}
-          </Text>
-          {first_release_date && (
-            <Text style={tailwind('font-objektiv-mk1-regular text-white')}>
-              release: {dayjs.unix(first_release_date).format('LL')}
+      <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
+        {img?.url && img?.width && img.height && (
+          <Image
+            source={{uri: img.url}}
+            resizeMode="contain"
+            style={tailwind('mx-2 h-24 rounded-md [aspectRatio:0.75]')}
+          />
+        )}
+        <View style={tailwind('flex-1 justify-between')}>
+          <View>
+            <Text
+              numberOfLines={1}
+              ellipsizeMode="tail"
+              style={tailwind('font-objektiv-mk1-bold text-white')}>
+              {name}
             </Text>
-          )}
-          <View style={tailwind('mt-2 flex-row')}>{platformLogos()}</View>
+            {first_release_date && (
+              <Text
+                style={tailwind('mt-0.5 font-objektiv-mk1-regular text-white')}>
+                release: {dayjs.unix(first_release_date).format('LL')}
+              </Text>
+            )}
+          </View>
+          <View style={tailwind('flex-row')}>{platformLogos()}</View>
         </View>
       </View>
     </View>

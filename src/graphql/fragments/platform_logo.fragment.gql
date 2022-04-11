@@ -1,3 +1,5 @@
 fragment PlatformLogo on PlatformLogo {
   url(imageType: $platformLogo)
+  height
+  width
 }
