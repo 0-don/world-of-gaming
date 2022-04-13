@@ -4,16 +4,16 @@
 			"position": "relative"
 		}
 	},
-	"mx-2": {
-		"style": {
-			"marginLeft": 8,
-			"marginRight": 8
-		}
-	},
 	"mx-5": {
 		"style": {
 			"marginLeft": 20,
 			"marginRight": 20
+		}
+	},
+	"mx-2": {
+		"style": {
+			"marginLeft": 8,
+			"marginRight": 8
 		}
 	},
 	"mt-2": {
@@ -192,11 +192,6 @@
 		"style": {
 			"paddingTop": 8,
 			"paddingBottom": 8
-		}
-	},
-	"pb-12": {
-		"style": {
-			"paddingBottom": 48
 		}
 	},
 	"pb-5": {

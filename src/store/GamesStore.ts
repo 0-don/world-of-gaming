@@ -17,7 +17,7 @@ type GamesStore = {
 const useGamesStore = create<GamesStore>(
   immer(
     (set): GamesStore => ({
-      search: 'call of duty',
+      search: '',
       games: undefined,
       loading: false,
       endReached: false,

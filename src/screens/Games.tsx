@@ -45,20 +45,18 @@ export const Games: React.FC<GamesProps> = ({}) => {
       {loading && games?.length === 0 ? (
         <FlatListLoader />
       ) : (
-        <>
-          <FlatList
-            contentContainerStyle={tailwind('mx-5')}
-            style={tailwind('mt-2 pb-5')}
-            data={games}
-            renderItem={({item}) => <GameCard game={item} />}
-            keyExtractor={item => item!.slug!}
-            onEndReachedThreshold={0.5}
-            onEndReached={fetchMore}
-            ListFooterComponent={() =>
-              loading && games ? <GameListContentLoader /> : null
-            }
-          />
-        </>
+        <FlatList
+          contentContainerStyle={tailwind('mx-5')}
+          style={tailwind('mt-2 pb-5')}
+          data={games}
+          renderItem={({item}) => <GameCard game={item} />}
+          keyExtractor={item => item!.slug!}
+          onEndReachedThreshold={0.5}
+          onEndReached={fetchMore}
+          ListFooterComponent={() =>
+            loading && games ? <GameListContentLoader /> : null
+          }
+        />
       )}
       {/* </BackgroundImage> */}
     </SafeArea>

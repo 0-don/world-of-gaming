@@ -2,14 +2,14 @@
   position: relative
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem
-}
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem
 }
 
 .mt-2 {
@@ -138,10 +138,6 @@
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem
-}
-
-.pb-12 {
-  padding-bottom: 3rem
 }
 
 .pb-5 {
