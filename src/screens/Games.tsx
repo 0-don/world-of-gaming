@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 // import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {SafeArea} from '../components/containers/SafeArea';
@@ -41,27 +41,25 @@ export const Games: React.FC<GamesProps> = ({}) => {
   return (
     <SafeArea style={tailwind('bg-dark-dark')}>
       {/* <BackgroundImage safeArea></BackgroundImage> */}
-      <View style={tailwind('mx-5')}>
-        <Search />
-        {loading && games?.length === 0 ? (
-          <FlatListLoader />
-        ) : (
-          <>
-            <FlatList
-              contentContainerStyle={tailwind('pb-12')}
-              style={tailwind('mt-2 pb-5')}
-              data={games}
-              renderItem={({item}) => <GameCard game={item} />}
-              keyExtractor={item => item!.slug!}
-              onEndReachedThreshold={0.5}
-              onEndReached={fetchMore}
-              ListFooterComponent={() =>
-                loading && games ? <GameListContentLoader /> : null
-              }
-            />
-          </>
-        )}
-      </View>
+      <Search style={tailwind('mx-5')} />
+      {loading && games?.length === 0 ? (
+        <FlatListLoader />
+      ) : (
+        <>
+          <FlatList
+            contentContainerStyle={tailwind('mx-5')}
+            style={tailwind('mt-2 pb-5')}
+            data={games}
+            renderItem={({item}) => <GameCard game={item} />}
+            keyExtractor={item => item!.slug!}
+            onEndReachedThreshold={0.5}
+            onEndReached={fetchMore}
+            ListFooterComponent={() =>
+              loading && games ? <GameListContentLoader /> : null
+            }
+          />
+        </>
+      )}
       {/* </BackgroundImage> */}
     </SafeArea>
   );
