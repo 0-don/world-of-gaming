@@ -6,7 +6,6 @@ module.exports = {
       'objektiv-mk1-thin': ['Objektiv_Mk1_Thin'],
       'objektiv-mk1-regular': ['Objektiv_Mk1_Regular'],
       'objektiv-mk1-bold': ['Objektiv_Mk1_Bold'],
-      'sf-pro-display-regular': ['SF_Pro_Display_Regular'],
     },
     extend: {
       colors: {
