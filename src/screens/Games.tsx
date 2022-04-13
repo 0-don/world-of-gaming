@@ -37,7 +37,7 @@ export const Games: React.FC<GamesProps> = ({}) => {
       setLoading(false);
     }
   };
-  console.log(loading);
+
   return (
     <SafeArea style={tailwind('bg-dark-dark')}>
       {/* <BackgroundImage safeArea></BackgroundImage> */}
@@ -56,12 +56,9 @@ export const Games: React.FC<GamesProps> = ({}) => {
               onEndReachedThreshold={0.5}
               onEndReached={fetchMore}
               ListFooterComponent={() =>
-                loading && games && games?.length > 0 ? (
-                  <GameListContentLoader />
-                ) : null
+                loading && games ? <GameListContentLoader /> : null
               }
             />
-            <GameListContentLoader />
           </>
         )}
       </View>
