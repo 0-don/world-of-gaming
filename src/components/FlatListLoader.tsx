@@ -10,7 +10,7 @@ export const FlatListLoader: React.FC = () => {
   const loaders = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
-    <View style={tailwind('mx-5')}>
+    <View>
       {loaders.map(i => (
         <View key={i} style={tailwind('mt-2 rounded-xl bg-dark px-2')}>
           <GameListContentLoader />

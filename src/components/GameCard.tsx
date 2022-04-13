@@ -64,7 +64,7 @@ export const GameCard: React.FC<GameCardProps> = ({
   };
 
   return (
-    <View style={tailwind('mx-5 mt-2')}>
+    <View style={tailwind('mt-2')}>
       <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
         {img?.url && img?.width && img.height && (
           <Image

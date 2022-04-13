@@ -7,17 +7,20 @@ type GamesStore = {
   search: string;
   games: GamesQueryType[] | undefined | null;
   loading: boolean;
+  endReached: boolean;
   setSearch: (search: string) => void;
   setGames: (games: GamesQueryType[] | undefined | null) => void;
   setLoading: (loading: boolean) => void;
+  setEndReached: (endReached: boolean) => void;
 };
 
 const useGamesStore = create<GamesStore>(
   immer(
     (set): GamesStore => ({
-      search: 'god of war',
+      search: 'call of duty',
       games: undefined,
       loading: false,
+      endReached: false,
       setSearch: search => set(state => void (state.search = search)),
       setGames: games =>
         set(state => {
@@ -25,6 +28,8 @@ const useGamesStore = create<GamesStore>(
           state.setLoading(false);
         }),
       setLoading: loading => set(state => void (state.loading = loading)),
+      setEndReached: endReached =>
+        set(state => void (state.endReached = endReached)),
     }),
   ),
 );

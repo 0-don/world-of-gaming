@@ -15,23 +15,34 @@ interface GamesProps {}
 
 export const Games: React.FC<GamesProps> = ({}) => {
   const tailwind = useTailwind();
-  const {loading, games, search, setGames, setLoading} = useGamesStore();
+  const {
+    loading,
+    games,
+    search,
+    setGames,
+    setLoading,
+    endReached,
+    setEndReached,
+  } = useGamesStore();
   const [fetchGames] = useGamesLazyQuery();
 
   const fetchMore = async () => {
-    setLoading(true);
-    const {data} = await fetchGames({
-      variables: gamesVariables(games, search),
-    });
-    setGames([...(games || []), ...(data?.games || [])]);
-    setLoading(false);
+    if (!endReached) {
+      setLoading(true);
+      const {data} = await fetchGames({
+        variables: gamesVariables(games, search),
+      });
+      setEndReached(data?.games?.length ? false : true);
+      setGames([...(games || []), ...(data?.games || [])]);
+      setLoading(false);
+    }
   };
-
+  console.log(loading);
   return (
     <SafeArea style={tailwind('bg-dark-dark')}>
       {/* <BackgroundImage safeArea></BackgroundImage> */}
-      <View>
-        <Search style={tailwind('mx-6')} />
+      <View style={tailwind('mx-5')}>
+        <Search />
         {loading && games?.length === 0 ? (
           <FlatListLoader />
         ) : (
@@ -42,8 +53,13 @@ export const Games: React.FC<GamesProps> = ({}) => {
               data={games}
               renderItem={({item}) => <GameCard game={item} />}
               keyExtractor={item => item!.slug!}
-              onEndReachedThreshold={0.2}
+              onEndReachedThreshold={0.5}
               onEndReached={fetchMore}
+              ListFooterComponent={() =>
+                loading && games && games?.length > 0 ? (
+                  <GameListContentLoader />
+                ) : null
+              }
             />
             <GameListContentLoader />
           </>

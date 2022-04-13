@@ -12,7 +12,8 @@ interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({style}) => {
   const tailwind = useTailwind();
-  const {setGames, setLoading, search, setSearch} = useGamesStore();
+  const {setGames, setLoading, search, setSearch, setEndReached} =
+    useGamesStore();
   const [fetchGames] = useGamesLazyQuery();
 
   useEffect(() => {
@@ -22,12 +23,13 @@ export const Search: React.FC<SearchProps> = ({style}) => {
       const {data} = await fetchGames({
         variables: gamesVariables(undefined, search),
       });
+      setEndReached(false);
       setGames(data?.games);
       setLoading(false);
     }, 1000);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [search, fetchGames, setGames, setLoading]);
+  }, [search, fetchGames, setGames, setLoading, setEndReached]);
 
   return (
     <View style={{...style, ...tailwind('')}}>
