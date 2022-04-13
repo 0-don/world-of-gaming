@@ -12,9 +12,7 @@
     "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\"",
     "gen": "graphql-codegen --require dotenv/config",
-    "clean": "cd android &&./gradlew clean",
-    "link": "yarn react-native link",
-    "postinstall": "yarn link"
+    "clean": "cd android &&./gradlew clean"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
