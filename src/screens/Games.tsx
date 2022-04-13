@@ -19,6 +19,7 @@ export const Games: React.FC<GamesProps> = ({}) => {
       {/* <BackgroundImage safeArea></BackgroundImage> */}
       <View>
         <Search style={tailwind('mx-6')} />
+        {/* <FlatListLoader /> */}
         {loading ? (
           <FlatListLoader />
         ) : (
