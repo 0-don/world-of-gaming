@@ -1,12 +1,12 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {GameDetails} from '../screens/GameDetails';
-import {Games} from '../screens/Games';
+import {Games, GamesNavigationProp} from '../screens/Games';
 import {GamesQueryType} from '../utils/types';
 
 export type RootStackParamList = {
   Games: undefined;
-  GameDetails: {game: GamesQueryType};
+  GameDetails: {game: GamesQueryType; navigation: GamesNavigationProp};
 };
 
 const Stack = createNativeStackNavigator();
