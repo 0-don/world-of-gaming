@@ -6,10 +6,12 @@ import {SafeArea} from './SafeArea';
 
 interface BackgroundImageProps {
   safeArea?: true;
+  img?: string | null;
 }
 
 export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   safeArea,
+  img,
   children,
 }) => {
   const tailwind = useTailwind();
@@ -22,7 +24,7 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
         height: height,
         ...tailwind('bg-black'),
       }}
-      source={require('../../assets/images/bg.png')}>
+      source={{uri: img || ''}}>
       <View style={{backgroundColor: 'rgba(0,0,0,0.65)', height: '100%'}}>
         {safeArea ? <SafeArea>{children}</SafeArea> : children}
       </View>

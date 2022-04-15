@@ -21,6 +21,6 @@ export const gamesVariables = (
   sort: {follows: SortOrder.Desc},
   offset: games?.length || undefined,
   limit: 10,
-  imageType: ImageTypeEnum.CoverBig,
+  imageType: ImageTypeEnum.Hd,
   platformLogo: ImageTypeEnum.CoverSmall,
 });

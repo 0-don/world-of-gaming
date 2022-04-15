@@ -7,6 +7,7 @@ import {GamesQueryType} from '../utils/types';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import {GamesNavigationProp} from '../screens/Games';
+import {color} from '../utils/utils';
 
 dayjs.extend(localizedFormat);
 interface GameCardProps {
@@ -52,24 +53,12 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
 
   const img = cover || artwork || screenshot;
 
-  const color = (rating: number) => {
-    if (rating) {
-      if (rating >= 75) {
-        return '#66cc33';
-      } else if (rating >= 50) {
-        return '#ffcc33';
-      } else {
-        return '#ff0000';
-      }
-    }
-  };
-
   return (
     <TouchableOpacity
       style={tailwind('mt-2')}
       onPress={() => navigation.navigate('GameDetails', {game, navigation})}>
       <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
-        {img?.url && img?.width && img.height && (
+        {img?.url && (
           <Image
             source={{uri: img.url}}
             resizeMode="contain"

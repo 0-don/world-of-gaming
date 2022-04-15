@@ -7,3 +7,13 @@ export const immer =
   ): StateCreator<T> =>
   (set, get, api) =>
     config(fn => set(produce<T>(fn)), get, api);
+
+export const color = (rating: number) => {
+  if (rating >= 75) {
+    return '#66cc33';
+  } else if (rating >= 50) {
+    return '#ffcc33';
+  } else {
+    return '#ff0000';
+  }
+};

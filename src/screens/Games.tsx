@@ -1,5 +1,5 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 // import {BackgroundImage} from '../components/containers/BackgroundImage';
@@ -46,6 +46,12 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (games && games?.length > 0) {
+      navigation.navigate('GameDetails', {game: games[0], navigation});
+    }
+  }, [games, navigation]);
 
   return (
     <SafeArea style={tailwind('bg-dark-dark')}>

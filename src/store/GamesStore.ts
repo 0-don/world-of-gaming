@@ -1,5 +1,5 @@
 /* eslint-disable no-void */
-import {immer} from '../utils/immer';
+import {immer} from '../utils/utils';
 import create from 'zustand';
 import {GamesQueryType} from '../utils/types';
 
