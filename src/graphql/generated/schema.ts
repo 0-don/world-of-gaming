@@ -986,16 +986,14 @@ export type ScreenshotFragment = {
   height?: number | null;
 };
 
-export type GamesQueryVariables = Exact<{
+export type GameDetailsQueryVariables = Exact<{
   where?: InputMaybe<GamesWhereInput>;
   sort?: InputMaybe<GamesSortInput>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
   imageType?: InputMaybe<ImageTypeEnum>;
   platformLogo?: InputMaybe<ImageTypeEnum>;
 }>;
 
-export type GamesQuery = {
+export type GameDetailsQuery = {
   __typename?: 'Query';
   games?: Array<{
     __typename?: 'Game';
@@ -1033,6 +1031,60 @@ export type GamesQuery = {
       width?: number | null;
       height?: number | null;
     }> | null;
+    cover?: {
+      __typename?: 'Cover';
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+    platforms?: Array<{
+      __typename?: 'Platform';
+      name?: string | null;
+      platform_logo?: {
+        __typename?: 'PlatformLogo';
+        url?: string | null;
+        height?: number | null;
+        width?: number | null;
+      } | null;
+    }> | null;
+  }> | null;
+};
+
+export type GamesQueryVariables = Exact<{
+  where?: InputMaybe<GamesWhereInput>;
+  sort?: InputMaybe<GamesSortInput>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  imageType?: InputMaybe<ImageTypeEnum>;
+  platformLogo?: InputMaybe<ImageTypeEnum>;
+}>;
+
+export type GamesQuery = {
+  __typename?: 'Query';
+  games?: Array<{
+    __typename?: 'Game';
+    id?: number | null;
+    aggregated_rating?: number | null;
+    aggregated_rating_count?: number | null;
+    category?: GameCategory | null;
+    created_at?: number | null;
+    first_release_date?: number | null;
+    follows?: number | null;
+    hypes?: number | null;
+    name?: string | null;
+    rating?: number | null;
+    rating_count?: number | null;
+    slug?: string | null;
+    status?: GameStatus | null;
+    storyline?: string | null;
+    summary?: string | null;
+    tags?: Array<number> | null;
+    total_rating?: number | null;
+    total_rating_count?: number | null;
+    updated_at?: number | null;
+    url?: string | null;
+    version_title?: string | null;
+    checksum?: string | null;
     cover?: {
       __typename?: 'Cover';
       url?: string | null;
@@ -1111,16 +1163,14 @@ export const ScreenshotFragmentDoc = gql`
     height
   }
 `;
-export const GamesDocument = gql`
-  query Games(
+export const GameDetailsDocument = gql`
+  query GameDetails(
     $where: GamesWhereInput
     $sort: GamesSortInput
-    $limit: Int
-    $offset: Int
     $imageType: ImageTypeEnum
     $platformLogo: ImageTypeEnum
   ) {
-    games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+    games(where: $where, sort: $sort) {
       ...Game
       screenshots {
         ...Screenshot
@@ -1142,6 +1192,85 @@ export const GamesDocument = gql`
   ${GameFragmentDoc}
   ${ScreenshotFragmentDoc}
   ${ArtworkFragmentDoc}
+  ${CoverFragmentDoc}
+  ${PlatformFragmentDoc}
+  ${PlatformLogoFragmentDoc}
+`;
+
+/**
+ * __useGameDetailsQuery__
+ *
+ * To run a query within a React component, call `useGameDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGameDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGameDetailsQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *      sort: // value for 'sort'
+ *      imageType: // value for 'imageType'
+ *      platformLogo: // value for 'platformLogo'
+ *   },
+ * });
+ */
+export function useGameDetailsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GameDetailsQuery,
+    GameDetailsQueryVariables
+  >,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<GameDetailsQuery, GameDetailsQueryVariables>(
+    GameDetailsDocument,
+    options,
+  );
+}
+export function useGameDetailsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GameDetailsQuery,
+    GameDetailsQueryVariables
+  >,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<GameDetailsQuery, GameDetailsQueryVariables>(
+    GameDetailsDocument,
+    options,
+  );
+}
+export type GameDetailsQueryHookResult = ReturnType<typeof useGameDetailsQuery>;
+export type GameDetailsLazyQueryHookResult = ReturnType<
+  typeof useGameDetailsLazyQuery
+>;
+export type GameDetailsQueryResult = Apollo.QueryResult<
+  GameDetailsQuery,
+  GameDetailsQueryVariables
+>;
+export const GamesDocument = gql`
+  query Games(
+    $where: GamesWhereInput
+    $sort: GamesSortInput
+    $limit: Int
+    $offset: Int
+    $imageType: ImageTypeEnum
+    $platformLogo: ImageTypeEnum
+  ) {
+    games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+      ...Game
+      cover {
+        ...Cover
+      }
+      platforms {
+        ...Platform
+        platform_logo {
+          ...PlatformLogo
+        }
+      }
+    }
+  }
+  ${GameFragmentDoc}
   ${CoverFragmentDoc}
   ${PlatformFragmentDoc}
   ${PlatformLogoFragmentDoc}

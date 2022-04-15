@@ -6,7 +6,7 @@ import {SafeArea} from './SafeArea';
 
 interface BackgroundImageProps {
   safeArea?: true;
-  img?: string | null;
+  img?: null | string;
 }
 
 export const BackgroundImage: React.FC<BackgroundImageProps> = ({

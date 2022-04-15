@@ -1,13 +1,17 @@
-query Games(
+query GameDetails(
   $where: GamesWhereInput
   $sort: GamesSortInput
-  $limit: Int
-  $offset: Int
   $imageType: ImageTypeEnum
   $platformLogo: ImageTypeEnum
 ) {
-  games(where: $where, sort: $sort, limit: $limit, offset: $offset) {
+  games(where: $where, sort: $sort) {
     ...Game
+    screenshots {
+      ...Screenshot
+    }
+    artworks {
+      ...Artwork
+    }
     cover {
       ...Cover
     }

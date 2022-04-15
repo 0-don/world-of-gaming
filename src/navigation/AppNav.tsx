@@ -6,7 +6,7 @@ import {GamesQueryType} from '../utils/types';
 
 export type RootStackParamList = {
   Games: undefined;
-  GameDetails: {game: GamesQueryType; navigation: GamesNavigationProp};
+  GameDetails: {id: number; navigation: GamesNavigationProp};
 };
 
 const Stack = createNativeStackNavigator();

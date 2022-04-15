@@ -8,6 +8,8 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import {GamesNavigationProp} from '../screens/Games';
 import {color} from '../utils/utils';
+import placeholder from '../assets/images/placeholder_game.png';
+// import useGamesStore from '../store/GamesStore';
 
 dayjs.extend(localizedFormat);
 interface GameCardProps {
@@ -16,19 +18,9 @@ interface GameCardProps {
 }
 
 export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
-  const {
-    cover,
-    artworks,
-    screenshots,
-    first_release_date,
-    name,
-    platforms,
-    aggregated_rating,
-  } = game;
+  // const {setGameDetails} = useGamesStore();
+  const {cover, first_release_date, name, platforms, aggregated_rating} = game;
   const tailwind = useTailwind();
-
-  const artwork = artworks?.find(art => art);
-  const screenshot = screenshots?.find(scr => scr);
 
   const platformLogos = () => {
     const logos = platforms
@@ -51,20 +43,23 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
     ));
   };
 
-  const img = cover || artwork || screenshot;
-
   return (
     <TouchableOpacity
       style={tailwind('mt-2')}
-      onPress={() => navigation.navigate('GameDetails', {game, navigation})}>
+      onPress={() => {
+        // setGameDetails(null);
+        navigation.navigate('GameDetails', {id: game.id!, navigation});
+      }}>
       <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
-        {img?.url && (
-          <Image
-            source={{uri: img.url}}
-            resizeMode="contain"
-            style={tailwind('mx-2 h-24 rounded-md [aspectRatio:0.75]')}
-          />
-        )}
+        <Image
+          source={cover?.url ? {uri: cover.url} : placeholder}
+          resizeMode="contain"
+          style={tailwind(
+            `mx-2 h-24 rounded-md ${
+              cover?.url ? '[aspectRatio:0.75]' : 'w-[4.5rem]' //i hate react native image support
+            }`,
+          )}
+        />
         <View style={tailwind('flex-1 justify-between')}>
           <View style={tailwind('flex-row items-center justify-between')}>
             <View>
@@ -84,18 +79,16 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
               )}
             </View>
             {aggregated_rating && (
-              <View style={tailwind('mr-3')}>
-                <CircularProgress
-                  value={aggregated_rating}
-                  radius={27.5}
-                  maxValue={100}
-                  activeStrokeColor={color(aggregated_rating)}
-                  inActiveStrokeColor={'black'}
-                  activeStrokeWidth={6}
-                  progressValueColor={color(aggregated_rating)}
-                  duration={2000}
-                />
-              </View>
+              <CircularProgress
+                value={aggregated_rating}
+                radius={27.5}
+                maxValue={100}
+                activeStrokeColor={color(aggregated_rating)}
+                inActiveStrokeColor={'black'}
+                activeStrokeWidth={6}
+                progressValueColor={color(aggregated_rating)}
+                duration={2000}
+              />
             )}
           </View>
           <View style={tailwind('flex-row')}>{platformLogos()}</View>

@@ -16,6 +16,12 @@
 			"marginRight": 8
 		}
 	},
+	"mx-4": {
+		"style": {
+			"marginLeft": 16,
+			"marginRight": 16
+		}
+	},
 	"mt-2": {
 		"style": {
 			"marginTop": 8
@@ -41,6 +47,16 @@
 			"marginRight": 12
 		}
 	},
+	"mr-5": {
+		"style": {
+			"marginRight": 20
+		}
+	},
+	"mr-12": {
+		"style": {
+			"marginRight": 48
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -56,9 +72,29 @@
 			"height": 96
 		}
 	},
+	"h-36": {
+		"style": {
+			"height": 144
+		}
+	},
 	"h-10": {
 		"style": {
 			"height": 40
+		}
+	},
+	"h-12": {
+		"style": {
+			"height": 48
+		}
+	},
+	"h-14": {
+		"style": {
+			"height": 56
+		}
+	},
+	"h-2": {
+		"style": {
+			"height": 8
 		}
 	},
 	"w-52": {
@@ -79,6 +115,61 @@
 	"w-11/12": {
 		"style": {
 			"width": "91.666667%"
+		}
+	},
+	"w-2": {
+		"style": {
+			"width": 8
+		}
+	},
+	"w-10": {
+		"style": {
+			"width": 40
+		}
+	},
+	"w-32": {
+		"style": {
+			"width": 128
+		}
+	},
+	"w-24": {
+		"style": {
+			"width": 96
+		}
+	},
+	"w-20": {
+		"style": {
+			"width": 80
+		}
+	},
+	"w-4": {
+		"style": {
+			"width": 16
+		}
+	},
+	"w-48": {
+		"style": {
+			"width": 192
+		}
+	},
+	"w-16": {
+		"style": {
+			"width": 64
+		}
+	},
+	"w-[17.5]": {
+		"style": {
+			"width": 17.5
+		}
+	},
+	"w-[17.5rem]": {
+		"style": {
+			"width": 280
+		}
+	},
+	"w-[4.5rem]": {
+		"style": {
+			"width": 72
 		}
 	},
 	"flex-1": {
@@ -224,6 +315,12 @@
 			"fontFamily": "Objektiv_Mk1_Light"
 		}
 	},
+	"text-xl": {
+		"style": {
+			"fontSize": 20,
+			"lineHeight": 28
+		}
+	},
 	"text-white": {
 		"style": {
 			"--tw-text-opacity": 1,
@@ -241,6 +338,41 @@
 	"[aspectRatio:0.75]": {
 		"style": {
 			"aspectRatio": 0.75
+		}
+	},
+	"[aspectRatio:0.5]": {
+		"style": {
+			"aspectRatio": 0.5
+		}
+	},
+	"[aspectRatio:0.0]": {
+		"style": {
+			"aspectRatio": 0
+		}
+	},
+	"[aspectRatio:0.02]": {
+		"style": {
+			"aspectRatio": 0.02
+		}
+	},
+	"[aspectRatio:0.05]": {
+		"style": {
+			"aspectRatio": 0.05
+		}
+	},
+	"[aspectRatio:0]": {
+		"style": {
+			"aspectRatio": 0
+		}
+	},
+	"[aspectRatio:2]": {
+		"style": {
+			"aspectRatio": 2
+		}
+	},
+	"[aspectRatio:8]": {
+		"style": {
+			"aspectRatio": 8
 		}
 	}
 }
