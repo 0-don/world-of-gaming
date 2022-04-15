@@ -35,7 +35,7 @@ const useGamesStore = create<GamesStore>(
           state =>
             void (gameDetails
               ? (state.gameDetails = gameDetails[0])
-              : undefined),
+              : (state.gameDetails = undefined)),
         ),
       setLoading: loading => set(state => void (state.loading = loading)),
       setEndReached: endReached =>

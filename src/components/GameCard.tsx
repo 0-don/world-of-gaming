@@ -18,7 +18,6 @@ interface GameCardProps {
 }
 
 export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
-  // const {setGameDetails} = useGamesStore();
   const {cover, first_release_date, name, platforms, aggregated_rating} = game;
   const tailwind = useTailwind();
 

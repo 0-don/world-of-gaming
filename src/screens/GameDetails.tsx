@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {Image, Text, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
+import {GameListContentLoader} from '../components/elements/GameListContentLoader';
 import {useGameDetailsLazyQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
 import useGamesStore from '../store/GamesStore';
@@ -21,9 +22,8 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     params: {id},
   },
 }) => {
-  const [bgImage, setBgImage] = React.useState<string | null | undefined>();
   const tailwind = useTailwind();
-  const {loading, gameDetails, setLoading, setGameDetails} = useGamesStore();
+  const {gameDetails, setLoading, setGameDetails} = useGamesStore();
   const [getGameDetails] = useGameDetailsLazyQuery({
     variables: gameDetailsVariables(id),
   });
@@ -36,24 +36,22 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
       setLoading(false);
     };
     fethGameDetails();
-    return () => {
-      setGameDetails(null);
-      setBgImage(null);
-    };
+
+    return () => setGameDetails(null);
   }, [setLoading, setGameDetails, getGameDetails]);
 
   if (!gameDetails) {
-    return null;
+    return <GameListContentLoader />;
   }
 
   const {
     cover,
     artworks,
     screenshots,
-    first_release_date,
+    // first_release_date,
     name,
     // platforms,
-    aggregated_rating,
+    // aggregated_rating,
   } = gameDetails;
 
   const images = () => {
@@ -66,12 +64,8 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     return urls[Math.floor(Math.random() * urls.length)];
   };
 
-  if (!bgImage) {
-    setBgImage(images());
-  }
-
   return (
-    <BackgroundImage safeArea img={bgImage}>
+    <BackgroundImage safeArea img={images()}>
       <View style={tailwind('mx-2 flex-row rounded-md bg-dark py-2')}>
         <Image
           source={{uri: cover?.url || images() || ''}}
