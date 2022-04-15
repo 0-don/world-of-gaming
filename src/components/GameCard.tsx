@@ -1,19 +1,21 @@
 /* eslint-disable react-native/no-inline-styles */
 import dayjs from 'dayjs';
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {GamesQueryType} from '../utils/types';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import CircularProgress from 'react-native-circular-progress-indicator';
+import {GamesNavigationProp} from '../screens/Games';
 
 dayjs.extend(localizedFormat);
 interface GameCardProps {
+  navigation: GamesNavigationProp;
   game: GamesQueryType;
 }
 
-export const GameCard: React.FC<GameCardProps> = ({
-  game: {
+export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
+  const {
     cover,
     artworks,
     screenshots,
@@ -21,8 +23,7 @@ export const GameCard: React.FC<GameCardProps> = ({
     name,
     platforms,
     aggregated_rating,
-  },
-}) => {
+  } = game;
   const tailwind = useTailwind();
 
   const artwork = artworks?.find(art => art);
@@ -64,7 +65,9 @@ export const GameCard: React.FC<GameCardProps> = ({
   };
 
   return (
-    <View style={tailwind('mt-2')}>
+    <TouchableOpacity
+      style={tailwind('mt-2')}
+      onPress={() => navigation.navigate('GameDetails', {game})}>
       <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
         {img?.url && img?.width && img.height && (
           <Image
@@ -109,6 +112,6 @@ export const GameCard: React.FC<GameCardProps> = ({
           <View style={tailwind('flex-row')}>{platformLogos()}</View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };

@@ -1,3 +1,4 @@
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {FlatList} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -8,12 +9,20 @@ import {FlatListLoader} from '../components/FlatListLoader';
 import {GameCard} from '../components/GameCard';
 import {Search} from '../components/Search';
 import {useGamesLazyQuery} from '../graphql/generated/schema';
+import {RootStackParamList} from '../navigation/AppNav';
 import useGamesStore from '../store/GamesStore';
 import {gamesVariables} from '../utils/apolloVariables';
 
-interface GamesProps {}
+export type GamesNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Games'
+>;
 
-export const Games: React.FC<GamesProps> = ({}) => {
+interface GamesProps {
+  navigation: GamesNavigationProp;
+}
+
+export const Games: React.FC<GamesProps> = ({navigation}) => {
   const tailwind = useTailwind();
   const {
     loading,
@@ -49,7 +58,9 @@ export const Games: React.FC<GamesProps> = ({}) => {
           contentContainerStyle={tailwind('mx-5')}
           style={tailwind('mt-2 pb-5')}
           data={games}
-          renderItem={({item}) => <GameCard game={item} />}
+          renderItem={({item}) => (
+            <GameCard game={item} navigation={navigation} />
+          )}
           keyExtractor={item => item!.slug!}
           onEndReachedThreshold={0.5}
           onEndReached={fetchMore}
