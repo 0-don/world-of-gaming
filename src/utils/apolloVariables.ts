@@ -32,5 +32,4 @@ export const gameDetailsVariables = (
 ): GameDetailsQueryVariables => ({
   where: {id: {equals: id}},
   imageType: ImageTypeEnum.Hd,
-  platformLogo: ImageTypeEnum.CoverSmall,
 });

@@ -92,6 +92,11 @@
 			"height": 40
 		}
 	},
+	"h-20": {
+		"style": {
+			"height": 80
+		}
+	},
 	"w-[4.5rem]": {
 		"style": {
 			"width": 72

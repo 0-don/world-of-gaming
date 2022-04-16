@@ -941,6 +941,7 @@ export type CompanyFragment = {
   __typename?: 'Company';
   id?: number | null;
   change_date?: number | null;
+  change_date_category?: DateFormatChangeDateCategory | null;
   country?: number | null;
   created_at?: number | null;
   description?: string | null;
@@ -951,7 +952,6 @@ export type CompanyFragment = {
   updated_at?: number | null;
   url?: string | null;
   checksum?: string | null;
-  change_date_category?: DateFormatChangeDateCategory | null;
 };
 
 export type CompanyLogoFragment = {
@@ -1056,7 +1056,6 @@ export type GameDetailsQueryVariables = Exact<{
   where?: InputMaybe<GamesWhereInput>;
   sort?: InputMaybe<GamesSortInput>;
   imageType?: InputMaybe<ImageTypeEnum>;
-  platformLogo?: InputMaybe<ImageTypeEnum>;
 }>;
 
 export type GameDetailsQuery = {
@@ -1103,16 +1102,7 @@ export type GameDetailsQuery = {
       width?: number | null;
       height?: number | null;
     } | null;
-    platforms?: Array<{
-      __typename?: 'Platform';
-      name?: string | null;
-      platform_logo?: {
-        __typename?: 'PlatformLogo';
-        url?: string | null;
-        height?: number | null;
-        width?: number | null;
-      } | null;
-    }> | null;
+    platforms?: Array<{__typename?: 'Platform'; name?: string | null}> | null;
     genres?: Array<{
       __typename?: 'Genre';
       name?: string | null;
@@ -1185,6 +1175,7 @@ export type GameDetailsQuery = {
         __typename?: 'Company';
         id?: number | null;
         change_date?: number | null;
+        change_date_category?: DateFormatChangeDateCategory | null;
         country?: number | null;
         created_at?: number | null;
         description?: string | null;
@@ -1195,13 +1186,6 @@ export type GameDetailsQuery = {
         updated_at?: number | null;
         url?: string | null;
         checksum?: string | null;
-        change_date_category?: DateFormatChangeDateCategory | null;
-        logo?: {
-          __typename?: 'CompanyLogo';
-          url?: string | null;
-          width?: number | null;
-          height?: number | null;
-        } | null;
       } | null;
     }> | null;
   }> | null;
@@ -1272,6 +1256,7 @@ export const CompanyFragmentDoc = gql`
   fragment Company on Company {
     id
     change_date
+    change_date_category
     country
     created_at
     description
@@ -1282,7 +1267,6 @@ export const CompanyFragmentDoc = gql`
     updated_at
     url
     checksum
-    change_date_category
   }
 `;
 export const CompanyLogoFragmentDoc = gql`
@@ -1391,7 +1375,6 @@ export const GameDetailsDocument = gql`
     $where: GamesWhereInput
     $sort: GamesSortInput
     $imageType: ImageTypeEnum
-    $platformLogo: ImageTypeEnum
   ) {
     games(where: $where, sort: $sort) {
       ...Game
@@ -1406,9 +1389,6 @@ export const GameDetailsDocument = gql`
       }
       platforms {
         ...Platform
-        platform_logo {
-          ...PlatformLogo
-        }
       }
       genres {
         ...Genre
@@ -1429,9 +1409,6 @@ export const GameDetailsDocument = gql`
         ...InvolvedCompany
         company {
           ...Company
-          logo {
-            ...CompanyLogo
-          }
         }
       }
     }
@@ -1441,13 +1418,11 @@ export const GameDetailsDocument = gql`
   ${ArtworkFragmentDoc}
   ${CoverFragmentDoc}
   ${PlatformFragmentDoc}
-  ${PlatformLogoFragmentDoc}
   ${GenreFragmentDoc}
   ${GameModeFragmentDoc}
   ${GameVideoFragmentDoc}
   ${InvolvedCompanyFragmentDoc}
   ${CompanyFragmentDoc}
-  ${CompanyLogoFragmentDoc}
 `;
 
 /**
@@ -1465,7 +1440,6 @@ export const GameDetailsDocument = gql`
  *      where: // value for 'where'
  *      sort: // value for 'sort'
  *      imageType: // value for 'imageType'
- *      platformLogo: // value for 'platformLogo'
  *   },
  * });
  */

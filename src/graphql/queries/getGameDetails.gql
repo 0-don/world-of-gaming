@@ -2,7 +2,6 @@ query GameDetails(
   $where: GamesWhereInput
   $sort: GamesSortInput
   $imageType: ImageTypeEnum
-  $platformLogo: ImageTypeEnum
 ) {
   games(where: $where, sort: $sort) {
     ...Game
@@ -17,9 +16,6 @@ query GameDetails(
     }
     platforms {
       ...Platform
-      platform_logo {
-        ...PlatformLogo
-      }
     }
     genres {
       ...Genre
@@ -40,9 +36,6 @@ query GameDetails(
       ...InvolvedCompany
       company {
         ...Company
-        logo {
-          ...CompanyLogo
-        }
       }
     }
   }

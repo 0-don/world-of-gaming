@@ -1,6 +1,7 @@
 fragment Company on Company {
   id
   change_date
+  change_date_category
   country
   created_at
   description
@@ -11,5 +12,4 @@ fragment Company on Company {
   updated_at
   url
   checksum
-  change_date_category
 }

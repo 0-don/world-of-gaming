@@ -1,5 +1,6 @@
 import {RouteProp} from '@react-navigation/native';
 import React, {useEffect} from 'react';
+import {FlatList, Text} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Block} from '../components/containers/Block';
@@ -45,7 +46,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     return <GameListContentLoader />;
   }
 
-  const {cover, artworks, screenshots} = gameDetails;
+  const {cover, artworks, screenshots, platforms: gamePlatforms} = gameDetails;
 
   const images = () => {
     const screenshotsUrls = screenshots
@@ -62,6 +63,21 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     <BackgroundImage safeArea img={images()}>
       <Block style={tailwind('flex-row')}>
         <GameDetailsHeader gameDetails={gameDetails} />
+      </Block>
+
+      <Block style={tailwind('mt-2 flex-row')}>
+        {gamePlatforms && gamePlatforms.length && (
+          <FlatList
+            horizontal={true}
+            data={gamePlatforms}
+            renderItem={({item}) => (
+              <Text style={tailwind('mr-1 rounded-md p-1 text-white')}>
+                {item?.name}
+              </Text>
+            )}
+            keyExtractor={item => item!.name!}
+          />
+        )}
       </Block>
     </BackgroundImage>
   );
