@@ -5,7 +5,7 @@ import {useTailwind} from 'tailwind-rn/dist';
 import {SafeArea} from '../components/containers/SafeArea';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
 import {FlatListLoader} from '../components/FlatListLoader';
-import {GameCard} from '../components/GameCard';
+import GameCard from '../components/GameCard';
 import {Search} from '../components/Search';
 import {useGamesLazyQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
@@ -24,20 +24,22 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
   const tailwind = useTailwind();
   const [search, setSearch] = useState('');
   const [endReached, setEndReached] = useState(false);
-  const [fetchGames, {data, loading, fetchMore}] = useGamesLazyQuery();
+  const [fetchGames, {data, loading, fetchMore}] = useGamesLazyQuery({
+    notifyOnNetworkStatusChange: true,
+  });
 
   const games = data?.games;
 
   const fetchMoreGames = async () => {
-    if (!endReached) {
-      await fetchMore({
+    if (!endReached && !loading) {
+      console.log(data?.games?.length);
+      const {data: fetchData} = await fetchMore({
         variables: gamesVariables(search, data?.games?.length),
       });
-      console.log(1);
-      setEndReached(data?.games?.length ? false : true);
+      setEndReached(fetchData?.games?.length ? false : true);
     }
   };
-  console.log(loading);
+  // console.log(loading, games?.length);
   // useEffect(() => {
   //   if (games && games?.length > 0) {
   //     navigation.navigate('GameDetails', {id: games[0].id!, navigation});
@@ -50,20 +52,22 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
         search={search}
         setSearch={setSearch}
         fetchGames={fetchGames}
+        setEndReached={setEndReached}
         style={tailwind('mx-5')}
       />
-      {loading ? (
+      {loading && !games ? (
         <FlatListLoader />
       ) : (
         <FlatList
           contentContainerStyle={tailwind('mx-5')}
           style={tailwind('mt-2 pb-5')}
           data={games}
+          initialNumToRender={6}
           renderItem={({item}) => (
             <GameCard game={item} navigation={navigation} />
           )}
           keyExtractor={item => item!.slug!}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.9}
           onEndReached={fetchMoreGames}
           ListFooterComponent={() =>
             loading && games ? <GameListContentLoader /> : null

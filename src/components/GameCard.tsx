@@ -1,13 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import dayjs from 'dayjs';
-import React from 'react';
+import React, {memo} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {GamesQueryType} from '../utils/types';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import {GamesNavigationProp} from '../screens/Games';
-
 import placeholder from '../assets/images/placeholder_game.png';
 import {colorHexString} from '../utils/utils';
 
@@ -17,7 +16,7 @@ interface GameCardProps {
   game: GamesQueryType;
 }
 
-export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
+const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
   const {cover, first_release_date, name, platforms, aggregated_rating} = game;
   const tailwind = useTailwind();
 
@@ -93,3 +92,5 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
     </TouchableOpacity>
   );
 };
+
+export default memo(GameCard);

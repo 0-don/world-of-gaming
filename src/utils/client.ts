@@ -11,7 +11,6 @@ export const client = new ApolloClient({
           games: {
             keyArgs: false,
             merge(existing = [], incoming) {
-              console.log(incoming);
               return [...existing, ...incoming];
             },
           },
