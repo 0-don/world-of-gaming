@@ -1,10 +1,10 @@
 import {RouteProp} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {FlatList, Text} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Block} from '../components/containers/Block';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
+import {HorizontalSliderContent} from '../components/elements/HorizontalSliderContent';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
 import {useGameDetailsLazyQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
@@ -46,7 +46,8 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     return <GameListContentLoader />;
   }
 
-  const {cover, artworks, screenshots, platforms: gamePlatforms} = gameDetails;
+  const {cover, artworks, screenshots, platforms, involved_companies} =
+    gameDetails;
 
   const images = () => {
     const screenshotsUrls = screenshots
@@ -59,25 +60,18 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     return urls[Math.floor(Math.random() * urls.length)];
   };
 
+  const platformNames = platforms?.map(({name}) => name);
+  const developerNames = involved_companies?.map(({company}) => company?.name);
+
   return (
     <BackgroundImage safeArea img={images()}>
       <Block style={tailwind('flex-row')}>
         <GameDetailsHeader gameDetails={gameDetails} />
       </Block>
 
-      <Block style={tailwind('mt-2 flex-row')}>
-        {gamePlatforms && gamePlatforms.length && (
-          <FlatList
-            horizontal={true}
-            data={gamePlatforms}
-            renderItem={({item}) => (
-              <Text style={tailwind('mr-1 rounded-md p-1 text-white')}>
-                {item?.name}
-              </Text>
-            )}
-            keyExtractor={item => item!.name!}
-          />
-        )}
+      <Block style={tailwind('px-2 text-white')}>
+        <HorizontalSliderContent name="platforms" data={platformNames} />
+        <HorizontalSliderContent name="developers" data={developerNames} />
       </Block>
     </BackgroundImage>
   );

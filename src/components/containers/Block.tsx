@@ -13,7 +13,7 @@ export const Block: React.FC<BlockProps> = ({children, style}) => {
   return (
     <Shadow
       viewStyle={tailwind('flex-row items-start')}
-      containerViewStyle={tailwind('flex-row items-start mx-2')}
+      containerViewStyle={tailwind('flex-row items-start mx-2 my-1')}
       distance={3}
       startColor={'#000'}>
       <View
