@@ -7,8 +7,9 @@ import {GamesQueryType} from '../utils/types';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import {GamesNavigationProp} from '../screens/Games';
-import {color} from '../utils/utils';
+
 import placeholder from '../assets/images/placeholder_game.png';
+import {colorHexString} from '../utils/utils';
 // import useGamesStore from '../store/GamesStore';
 
 dayjs.extend(localizedFormat);
@@ -81,10 +82,10 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
                 value={aggregated_rating}
                 radius={27.5}
                 maxValue={100}
-                activeStrokeColor={color(aggregated_rating)}
+                activeStrokeColor={colorHexString(aggregated_rating)}
                 inActiveStrokeColor={'black'}
                 activeStrokeWidth={6}
-                progressValueColor={color(aggregated_rating)}
+                progressValueColor={colorHexString(aggregated_rating)}
                 duration={2000}
               />
             )}

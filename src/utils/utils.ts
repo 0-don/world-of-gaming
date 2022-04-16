@@ -8,7 +8,7 @@ export const immer =
   (set, get, api) =>
     config(fn => set(produce<T>(fn)), get, api);
 
-export const color = (rating: number) => {
+export const colorHexString = (rating: number) => {
   if (rating >= 75) {
     return '#66cc33';
   } else if (rating >= 50) {
