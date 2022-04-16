@@ -972,26 +972,11 @@ export type GameFragment = {
   __typename?: 'Game';
   id?: number | null;
   aggregated_rating?: number | null;
-  aggregated_rating_count?: number | null;
   category?: GameCategory | null;
-  created_at?: number | null;
   first_release_date?: number | null;
   follows?: number | null;
-  hypes?: number | null;
   name?: string | null;
-  rating?: number | null;
-  rating_count?: number | null;
   slug?: string | null;
-  status?: GameStatus | null;
-  storyline?: string | null;
-  summary?: string | null;
-  tags?: Array<number> | null;
-  total_rating?: number | null;
-  total_rating_count?: number | null;
-  updated_at?: number | null;
-  url?: string | null;
-  version_title?: string | null;
-  checksum?: string | null;
 };
 
 export type GameVideoFragment = {
@@ -1064,26 +1049,11 @@ export type GameDetailsQuery = {
     __typename?: 'Game';
     id?: number | null;
     aggregated_rating?: number | null;
-    aggregated_rating_count?: number | null;
     category?: GameCategory | null;
-    created_at?: number | null;
     first_release_date?: number | null;
     follows?: number | null;
-    hypes?: number | null;
     name?: string | null;
-    rating?: number | null;
-    rating_count?: number | null;
     slug?: string | null;
-    status?: GameStatus | null;
-    storyline?: string | null;
-    summary?: string | null;
-    tags?: Array<number> | null;
-    total_rating?: number | null;
-    total_rating_count?: number | null;
-    updated_at?: number | null;
-    url?: string | null;
-    version_title?: string | null;
-    checksum?: string | null;
     screenshots?: Array<{
       __typename?: 'Screenshot';
       url?: string | null;
@@ -1127,26 +1097,11 @@ export type GameDetailsQuery = {
       __typename?: 'Game';
       id?: number | null;
       aggregated_rating?: number | null;
-      aggregated_rating_count?: number | null;
       category?: GameCategory | null;
-      created_at?: number | null;
       first_release_date?: number | null;
       follows?: number | null;
-      hypes?: number | null;
       name?: string | null;
-      rating?: number | null;
-      rating_count?: number | null;
       slug?: string | null;
-      status?: GameStatus | null;
-      storyline?: string | null;
-      summary?: string | null;
-      tags?: Array<number> | null;
-      total_rating?: number | null;
-      total_rating_count?: number | null;
-      updated_at?: number | null;
-      url?: string | null;
-      version_title?: string | null;
-      checksum?: string | null;
       cover?: {
         __typename?: 'Cover';
         url?: string | null;
@@ -1206,26 +1161,11 @@ export type GamesQuery = {
     __typename?: 'Game';
     id?: number | null;
     aggregated_rating?: number | null;
-    aggregated_rating_count?: number | null;
     category?: GameCategory | null;
-    created_at?: number | null;
     first_release_date?: number | null;
     follows?: number | null;
-    hypes?: number | null;
     name?: string | null;
-    rating?: number | null;
-    rating_count?: number | null;
     slug?: string | null;
-    status?: GameStatus | null;
-    storyline?: string | null;
-    summary?: string | null;
-    tags?: Array<number> | null;
-    total_rating?: number | null;
-    total_rating_count?: number | null;
-    updated_at?: number | null;
-    url?: string | null;
-    version_title?: string | null;
-    checksum?: string | null;
     cover?: {
       __typename?: 'Cover';
       url?: string | null;
@@ -1287,26 +1227,11 @@ export const GameFragmentDoc = gql`
   fragment Game on Game {
     id
     aggregated_rating
-    aggregated_rating_count
     category
-    created_at
     first_release_date
     follows
-    hypes
     name
-    rating
-    rating_count
     slug
-    status
-    storyline
-    summary
-    tags
-    total_rating
-    total_rating_count
-    updated_at
-    url
-    version_title
-    checksum
   }
 `;
 export const GameVideoFragmentDoc = gql`
