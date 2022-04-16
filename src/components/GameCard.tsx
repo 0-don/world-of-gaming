@@ -10,7 +10,6 @@ import {GamesNavigationProp} from '../screens/Games';
 
 import placeholder from '../assets/images/placeholder_game.png';
 import {colorHexString} from '../utils/utils';
-// import useGamesStore from '../store/GamesStore';
 
 dayjs.extend(localizedFormat);
 interface GameCardProps {
@@ -46,9 +45,7 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
   return (
     <TouchableOpacity
       style={tailwind('mt-2')}
-      onPress={() =>
-        navigation.navigate('GameDetails', {id: game.id!, navigation})
-      }>
+      onPress={() => navigation.navigate('GameDetails', {id: game.id!})}>
       <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
         <Image
           source={cover?.url ? {uri: cover.url} : placeholder}

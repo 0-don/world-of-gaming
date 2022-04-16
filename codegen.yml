@@ -3,10 +3,13 @@ schema: ${GRAPHQL_URL}
 documents: '**/*.{gql,graphql}'
 generates:
   ./src/graphql/generated/schema.ts:
+    config:
+      - 'namedOperations'
     plugins:
       - 'typescript'
       - 'typescript-operations'
       - 'typescript-react-apollo'
+      - 'named-operations-object'
 
 hooks:
   afterAllFileWrite:

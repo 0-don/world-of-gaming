@@ -1,35 +1,32 @@
-import React, {useEffect} from 'react';
+import React, {Dispatch, SetStateAction, useEffect} from 'react';
 import {View, ViewStyle} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {useGamesLazyQuery} from '../graphql/generated/schema';
-import useGamesStore from '../store/GamesStore';
+import {GamesLazyQueryHookResult} from '../graphql/generated/schema';
 import {gamesVariables} from '../utils/apolloVariables';
 import {Input} from './elements/Input';
 
 interface SearchProps {
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
   style?: ViewStyle;
+  fetchGames: GamesLazyQueryHookResult[0];
 }
 
-export const Search: React.FC<SearchProps> = ({style}) => {
+export const Search: React.FC<SearchProps> = ({
+  style,
+  search,
+  setSearch,
+  fetchGames,
+}) => {
   const tailwind = useTailwind();
-  const {setGames, setLoading, search, setSearch, setEndReached} =
-    useGamesStore();
-  const [fetchGames] = useGamesLazyQuery();
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
-      setLoading(true);
-      setGames([]);
-      const {data} = await fetchGames({
-        variables: gamesVariables(undefined, search),
-      });
-      setEndReached(false);
-      setGames(data?.games);
-      setLoading(false);
+      fetchGames({variables: gamesVariables(search, undefined)});
     }, 1000);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [search, fetchGames, setGames, setLoading, setEndReached]);
+  }, [search, fetchGames]);
 
   return (
     <View style={{...style, ...tailwind('')}}>

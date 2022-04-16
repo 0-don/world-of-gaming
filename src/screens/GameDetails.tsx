@@ -10,12 +10,10 @@ import {GameDetailsHeader} from '../components/GameDetailsHeader';
 import {useGameDetailsQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
 import {gameDetailsVariables} from '../utils/apolloVariables';
-import {GamesNavigationProp} from './Games';
 
 export type GameDetailsRouteProp = RouteProp<RootStackParamList, 'GameDetails'>;
 
 interface GameDetailsProps {
-  navigation: GamesNavigationProp;
   route: GameDetailsRouteProp;
 }
 
@@ -39,6 +37,8 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
 
   const {cover, artworks, screenshots, platforms, involved_companies} =
     data?.games[0];
+  const platformNames = platforms?.map(({name}) => name);
+  const developerNames = involved_companies?.map(({company}) => company?.name);
 
   const images = () => {
     const screenshotsUrls = screenshots
@@ -51,16 +51,13 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     return urls[Math.floor(Math.random() * urls.length)];
   };
 
-  const platformNames = platforms?.map(({name}) => name);
-  const developerNames = involved_companies?.map(({company}) => company?.name);
-
   return (
     <BackgroundImage safeArea img={images()}>
       <Block style={tailwind('flex-row')}>
         <GameDetailsHeader gameDetails={data.games[0]} />
       </Block>
 
-      <Block style={tailwind('px-2 text-white')}>
+      <Block style={tailwind('flex-1 px-2 text-white')}>
         <HorizontalSliderContent name="platforms" data={platformNames} />
         <HorizontalSliderContent name="developers" data={developerNames} />
       </Block>

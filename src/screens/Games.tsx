@@ -1,5 +1,5 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {SafeArea} from '../components/containers/SafeArea';
@@ -9,7 +9,6 @@ import {GameCard} from '../components/GameCard';
 import {Search} from '../components/Search';
 import {useGamesLazyQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
-import useGamesStore from '../store/GamesStore';
 import {gamesVariables} from '../utils/apolloVariables';
 
 export type GamesNavigationProp = NativeStackNavigationProp<
@@ -23,29 +22,22 @@ interface GamesProps {
 
 export const Games: React.FC<GamesProps> = ({navigation}) => {
   const tailwind = useTailwind();
-  const {
-    loading,
-    games,
-    search,
-    setGames,
-    setLoading,
-    endReached,
-    setEndReached,
-  } = useGamesStore();
-  const [fetchGames] = useGamesLazyQuery();
+  const [search, setSearch] = useState('');
+  const [endReached, setEndReached] = useState(false);
+  const [fetchGames, {data, loading, fetchMore}] = useGamesLazyQuery();
 
-  const fetchMore = async () => {
+  const games = data?.games;
+
+  const fetchMoreGames = async () => {
     if (!endReached) {
-      setLoading(true);
-      const {data} = await fetchGames({
-        variables: gamesVariables(games, search),
+      await fetchMore({
+        variables: gamesVariables(search, data?.games?.length),
       });
+      console.log(1);
       setEndReached(data?.games?.length ? false : true);
-      setGames([...(games || []), ...(data?.games || [])]);
-      setLoading(false);
     }
   };
-
+  console.log(loading);
   // useEffect(() => {
   //   if (games && games?.length > 0) {
   //     navigation.navigate('GameDetails', {id: games[0].id!, navigation});
@@ -54,8 +46,13 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
 
   return (
     <SafeArea style={tailwind('bg-dark-dark')}>
-      <Search style={tailwind('mx-5')} />
-      {loading && games?.length === 0 ? (
+      <Search
+        search={search}
+        setSearch={setSearch}
+        fetchGames={fetchGames}
+        style={tailwind('mx-5')}
+      />
+      {loading ? (
         <FlatListLoader />
       ) : (
         <FlatList
@@ -67,7 +64,7 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
           )}
           keyExtractor={item => item!.slug!}
           onEndReachedThreshold={0.5}
-          onEndReached={fetchMore}
+          onEndReached={fetchMoreGames}
           ListFooterComponent={() =>
             loading && games ? <GameListContentLoader /> : null
           }

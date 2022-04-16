@@ -1548,3 +1548,23 @@ export type GamesQueryResult = Apollo.QueryResult<
   GamesQuery,
   GamesQueryVariables
 >;
+export const namedOperations = {
+  Query: {
+    GameDetails: 'GameDetails',
+    Games: 'Games',
+  },
+  Fragment: {
+    Artwork: 'Artwork',
+    Company: 'Company',
+    CompanyLogo: 'CompanyLogo',
+    Cover: 'Cover',
+    Game: 'Game',
+    GameVideo: 'GameVideo',
+    GameMode: 'GameMode',
+    Genre: 'Genre',
+    InvolvedCompany: 'InvolvedCompany',
+    Platform: 'Platform',
+    PlatformLogo: 'PlatformLogo',
+    Screenshot: 'Screenshot',
+  },
+};

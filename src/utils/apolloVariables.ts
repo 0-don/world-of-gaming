@@ -1,15 +1,14 @@
 import {
   GameCategory,
-  SortOrder,
-  ImageTypeEnum,
-  GamesQueryVariables,
   GameDetailsQueryVariables,
+  GamesQueryVariables,
+  ImageTypeEnum,
+  SortOrder,
 } from '../graphql/generated/schema';
-import {GamesQueryType} from './types';
 
 export const gamesVariables = (
-  games: GamesQueryType[] | undefined | null,
   search: string,
+  gameCount: number | undefined,
 ): GamesQueryVariables => ({
   where: {
     AND: [
@@ -21,7 +20,7 @@ export const gamesVariables = (
     ],
   },
   sort: {follows: SortOrder.Desc},
-  offset: games?.length || undefined,
+  offset: gameCount || undefined,
   limit: 10,
   imageType: ImageTypeEnum.Hd,
   platformLogo: ImageTypeEnum.CoverSmall,

@@ -25,6 +25,7 @@ export const HorizontalSliderContent: React.FC<
       <FlatList
         horizontal
         data={data}
+        showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <Text
             style={tailwind(

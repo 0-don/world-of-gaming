@@ -84,6 +84,16 @@
 			"marginLeft": 4
 		}
 	},
+	"mt-1": {
+		"style": {
+			"marginTop": 4
+		}
+	},
+	"mt-8": {
+		"style": {
+			"marginTop": 32
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -300,6 +310,11 @@
 	"pl-1": {
 		"style": {
 			"paddingLeft": 4
+		}
+	},
+	"pt-8": {
+		"style": {
+			"paddingTop": 32
 		}
 	},
 	"font-objektiv-mk1-bold": {
