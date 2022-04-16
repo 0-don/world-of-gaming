@@ -17,6 +17,11 @@ export const GameDetailsHeader: React.FC<GameDetailsHeaderProps> = ({
   gameDetails,
 }) => {
   const tailwind = useTailwind();
+
+  if (!gameDetails) {
+    return null;
+  }
+
   const {
     cover,
     first_release_date,

@@ -27,7 +27,7 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
   const [search, setSearch] = useState('');
   const [endReached, setEndReached] = useState(false);
   const [fetchGames, {data, loading, fetchMore}] = useGamesLazyQuery({
-    // notifyOnNetworkStatusChange: true,
+    notifyOnNetworkStatusChange: true,
   });
 
   const games = data?.games;
@@ -38,6 +38,7 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
       const {data: fetchData} = await fetchMore({
         variables: gamesVariables(search, data?.games?.length),
       });
+      console.log('fetch finsihed');
       setEndReached(fetchData?.games?.length ? false : true);
     }
   };
@@ -64,16 +65,12 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
           contentContainerStyle={tailwind('mx-5')}
           style={tailwind('mt-2 pb-5')}
           data={games}
-          // initialNumToRender={7}
           renderItem={({item}) => (
             <GameCard game={item} navigation={navigation} />
           )}
           keyExtractor={item => item!.slug!}
           onEndReachedThreshold={0.5}
-          // onMomentumScrollEnd={fetchMoreGames}
-          onEndReached={({distanceFromEnd}) =>
-            distanceFromEnd > 0 && fetchMoreGames()
-          }
+          onEndReached={fetchMoreGames}
           ListFooterComponent={() =>
             loading && games ? <GameListContentLoader /> : null
           }

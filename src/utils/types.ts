@@ -5,4 +5,4 @@ export type ArrayElement<ArrayType extends unknown[] | undefined | null> =
 
 export type GamesQueryType = ArrayElement<GamesQuery['games']>;
 
-export type GameDetailsQueryType = ArrayElement<GameDetailsQuery['games']>;
+export type GameDetailsQueryType = GameDetailsQuery['game'];

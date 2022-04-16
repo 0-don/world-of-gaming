@@ -1,4 +1,5 @@
 import {useApolloClient} from '@apollo/client';
+import {useIsFocused} from '@react-navigation/native';
 import React, {Dispatch, SetStateAction, useEffect} from 'react';
 import {View, ViewStyle} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -21,22 +22,25 @@ export const Search: React.FC<SearchProps> = ({
   setEndReached,
   fetchGames,
 }) => {
+  const isFocused = useIsFocused();
   const {cache} = useApolloClient();
   const tailwind = useTailwind();
 
   useEffect(() => {
-    console.log('search');
-    const delayDebounceFn = setTimeout(async () => {
-      cache.evict({id: 'ROOT_QUERY', fieldName: 'games'});
+    if (isFocused) {
+      console.log('search');
+      const delayDebounceFn = setTimeout(async () => {
+        cache.evict({id: 'ROOT_QUERY', fieldName: 'games'});
 
-      setEndReached(false);
-      await fetchGames({
-        variables: gamesVariables(search, undefined),
-      });
-    }, 1000);
+        setEndReached(false);
+        await fetchGames({
+          variables: gamesVariables(search, undefined),
+        });
+      }, 1000);
 
-    return () => clearTimeout(delayDebounceFn);
-  }, [search, fetchGames, setEndReached, cache]);
+      return () => clearTimeout(delayDebounceFn);
+    }
+  }, [search, fetchGames, setEndReached, cache, isFocused]);
 
   return (
     <View style={{...style, ...tailwind('')}}>
