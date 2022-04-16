@@ -26,19 +26,20 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
   const isFocused = useIsFocused();
   const [search, setSearch] = useState('');
   const [endReached, setEndReached] = useState(false);
-  const [fetchGames, {data, loading, fetchMore}] = useGamesLazyQuery({
-    notifyOnNetworkStatusChange: true,
-  });
+  const [fetchGames, {data, loading, fetchMore, networkStatus, error}] =
+    useGamesLazyQuery({
+      notifyOnNetworkStatusChange: true,
+    });
 
   const games = data?.games;
-  console.log(games?.length, loading);
+  console.log(games?.length, loading, error, networkStatus);
   const fetchMoreGames = async () => {
     if (!endReached && !loading && isFocused) {
-      console.log('fetch more');
+      console.log('fetch more', search, data?.games?.length);
       const {data: fetchData} = await fetchMore({
-        variables: gamesVariables(search, data?.games?.length),
+        variables: gamesVariables(search, data?.games?.length || 0),
       });
-      console.log('fetch finsihed');
+
       setEndReached(fetchData?.games?.length ? false : true);
     }
   };

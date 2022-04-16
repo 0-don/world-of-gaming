@@ -1,5 +1,5 @@
 import {RouteProp} from '@react-navigation/native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Block} from '../components/containers/Block';
@@ -7,7 +7,7 @@ import {SafeArea} from '../components/containers/SafeArea';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
 import {HorizontalSliderContent} from '../components/elements/HorizontalSliderContent';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
-import {useGameDetailsLazyQuery} from '../graphql/generated/schema';
+import {useGameDetailsQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
 import {gameDetailsVariables} from '../utils/apolloVariables';
 
@@ -23,16 +23,9 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   },
 }) => {
   const tailwind = useTailwind();
-  // const {data, loading} = useGameDetailsQuery({
-  //   variables: gameDetailsVariables(id),
-  // });
-  const [fetchGameDetails, {data, loading}] = useGameDetailsLazyQuery({
+  const {data, loading} = useGameDetailsQuery({
     variables: gameDetailsVariables(id),
   });
-
-  useEffect(() => {
-    fetchGameDetails();
-  }, [fetchGameDetails]);
 
   if (!data?.game || loading) {
     return (

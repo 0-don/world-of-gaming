@@ -8,7 +8,7 @@ import {
 
 export const gamesVariables = (
   search: string,
-  gameCount: number | undefined,
+  gameCount: number,
 ): GamesQueryVariables => ({
   where: {
     AND: [

@@ -34,7 +34,7 @@ export const Search: React.FC<SearchProps> = ({
 
         setEndReached(false);
         await fetchGames({
-          variables: gamesVariables(search, undefined),
+          variables: gamesVariables(search, 0),
         });
       }, 1000);
 
