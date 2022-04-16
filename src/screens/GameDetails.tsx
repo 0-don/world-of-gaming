@@ -1,14 +1,14 @@
 import {RouteProp} from '@react-navigation/native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Block} from '../components/containers/Block';
+import {SafeArea} from '../components/containers/SafeArea';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
 import {HorizontalSliderContent} from '../components/elements/HorizontalSliderContent';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
-import {useGameDetailsLazyQuery} from '../graphql/generated/schema';
+import {useGameDetailsQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
-import useGamesStore from '../store/GamesStore';
 import {gameDetailsVariables} from '../utils/apolloVariables';
 import {GamesNavigationProp} from './Games';
 
@@ -25,29 +25,20 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   },
 }) => {
   const tailwind = useTailwind();
-  const {gameDetails, setLoading, setGameDetails} = useGamesStore();
-  const [getGameDetails] = useGameDetailsLazyQuery({
+  const {data, loading} = useGameDetailsQuery({
     variables: gameDetailsVariables(id),
   });
 
-  useEffect(() => {
-    const fethGameDetails = async () => {
-      setLoading(true);
-      const {data} = await getGameDetails();
-      setGameDetails(data?.games);
-      setLoading(false);
-    };
-    fethGameDetails();
-
-    return () => setGameDetails(null);
-  }, [setLoading, setGameDetails, getGameDetails]);
-
-  if (!gameDetails) {
-    return <GameListContentLoader />;
+  if (!data?.games || loading) {
+    return (
+      <SafeArea style={tailwind('bg-dark-dark')}>
+        <GameListContentLoader />
+      </SafeArea>
+    );
   }
 
   const {cover, artworks, screenshots, platforms, involved_companies} =
-    gameDetails;
+    data?.games[0];
 
   const images = () => {
     const screenshotsUrls = screenshots
@@ -66,7 +57,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   return (
     <BackgroundImage safeArea img={images()}>
       <Block style={tailwind('flex-row')}>
-        <GameDetailsHeader gameDetails={gameDetails} />
+        <GameDetailsHeader gameDetails={data.games[0]} />
       </Block>
 
       <Block style={tailwind('px-2 text-white')}>

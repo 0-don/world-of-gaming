@@ -24,14 +24,14 @@
   margin-right: 0.5rem
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem
-}
-
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem
 }
 
 .mx-1 {
@@ -61,10 +61,6 @@
 
 .ml-3 {
   margin-left: 0.75rem
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem
 }
 
 .ml-1 {
@@ -193,14 +189,14 @@
   background-color: rgb(0 0 0 / var(--tw-bg-opacity))
 }
 
-.bg-dark-light {
-  --tw-bg-opacity: 1;
-  background-color: rgb(70 70 73 / var(--tw-bg-opacity))
-}
-
 .bg-purple {
   --tw-bg-opacity: 1;
   background-color: rgb(145 71 255 / var(--tw-bg-opacity))
+}
+
+.bg-dark-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(70 70 73 / var(--tw-bg-opacity))
 }
 
 .p-1 {
@@ -254,10 +250,6 @@
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem
-}
-
-.font-bold {
-  font-weight: 700
 }
 
 .font-semibold {
