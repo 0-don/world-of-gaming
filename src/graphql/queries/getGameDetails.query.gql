@@ -3,7 +3,7 @@ query GameDetails(
   $sort: GamesSortInput
   $imageType: ImageTypeEnum
 ) {
-  games(where: $where, sort: $sort) {
+  game(where: $where, sort: $sort) {
     ...Game
     screenshots {
       ...Screenshot

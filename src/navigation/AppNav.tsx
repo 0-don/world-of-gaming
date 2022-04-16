@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {GameDetails} from '../screens/GameDetails';
 import {Games} from '../screens/Games';
+import {Test} from '../screens/Test';
 
 export type RootStackParamList = {
   Games: undefined;

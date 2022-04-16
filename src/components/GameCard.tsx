@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import dayjs from 'dayjs';
-import React, {memo} from 'react';
+import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {GamesQueryType} from '../utils/types';
@@ -16,7 +16,7 @@ interface GameCardProps {
   game: GamesQueryType;
 }
 
-const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
+export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
   const {cover, first_release_date, name, platforms, aggregated_rating} = game;
   const tailwind = useTailwind();
 
@@ -92,5 +92,3 @@ const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
     </TouchableOpacity>
   );
 };
-
-export default memo(GameCard);

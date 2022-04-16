@@ -27,7 +27,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     variables: gameDetailsVariables(id),
   });
 
-  if (!data?.games || loading) {
+  if (!data?.game || loading) {
     return (
       <SafeArea style={tailwind('bg-dark-dark')}>
         <GameListContentLoader />
@@ -36,7 +36,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   }
 
   const {cover, artworks, screenshots, platforms, involved_companies} =
-    data?.games[0];
+    data?.game;
   const platformNames = platforms?.map(({name}) => name);
   const developerNames = involved_companies?.map(({company}) => company?.name);
 
@@ -54,7 +54,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   return (
     <BackgroundImage safeArea img={images()}>
       <Block style={tailwind('flex-row')}>
-        <GameDetailsHeader gameDetails={data.games[0]} />
+        <GameDetailsHeader gameDetails={data.game} />
       </Block>
 
       <Block style={tailwind('flex-1 px-2 text-white')}>

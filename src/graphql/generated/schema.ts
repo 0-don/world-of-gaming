@@ -790,6 +790,7 @@ export type Query = {
   covers?: Maybe<Array<Cover>>;
   externalGames?: Maybe<Array<ExternalGame>>;
   franchises?: Maybe<Array<Franchise>>;
+  game?: Maybe<Game>;
   gameEngines?: Maybe<Array<GameEngine>>;
   gameEnginesLogos?: Maybe<Array<GameEngineLogo>>;
   gameModes?: Maybe<Array<GameMode>>;
@@ -811,6 +812,13 @@ export type Query = {
   screenshots?: Maybe<Array<Screenshot>>;
   themes?: Maybe<Array<Theme>>;
   websites?: Maybe<Array<Website>>;
+};
+
+export type QueryGameArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<GamesSortInput>;
+  where?: InputMaybe<GamesWhereInput>;
 };
 
 export type QueryGamesArgs = {
@@ -1045,7 +1053,7 @@ export type GameDetailsQueryVariables = Exact<{
 
 export type GameDetailsQuery = {
   __typename?: 'Query';
-  games?: Array<{
+  game?: {
     __typename?: 'Game';
     id?: number | null;
     aggregated_rating?: number | null;
@@ -1143,7 +1151,7 @@ export type GameDetailsQuery = {
         checksum?: string | null;
       } | null;
     }> | null;
-  }> | null;
+  } | null;
 };
 
 export type GamesQueryVariables = Exact<{
@@ -1301,7 +1309,7 @@ export const GameDetailsDocument = gql`
     $sort: GamesSortInput
     $imageType: ImageTypeEnum
   ) {
-    games(where: $where, sort: $sort) {
+    game(where: $where, sort: $sort) {
       ...Game
       screenshots {
         ...Screenshot
@@ -1473,23 +1481,3 @@ export type GamesQueryResult = Apollo.QueryResult<
   GamesQuery,
   GamesQueryVariables
 >;
-export const namedOperations = {
-  Query: {
-    GameDetails: 'GameDetails',
-    Games: 'Games',
-  },
-  Fragment: {
-    Artwork: 'Artwork',
-    Company: 'Company',
-    CompanyLogo: 'CompanyLogo',
-    Cover: 'Cover',
-    Game: 'Game',
-    GameVideo: 'GameVideo',
-    GameMode: 'GameMode',
-    Genre: 'Genre',
-    InvolvedCompany: 'InvolvedCompany',
-    Platform: 'Platform',
-    PlatformLogo: 'PlatformLogo',
-    Screenshot: 'Screenshot',
-  },
-};

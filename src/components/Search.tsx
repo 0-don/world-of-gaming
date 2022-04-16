@@ -25,10 +25,14 @@ export const Search: React.FC<SearchProps> = ({
   const tailwind = useTailwind();
 
   useEffect(() => {
+    console.log('search');
     const delayDebounceFn = setTimeout(async () => {
       cache.evict({id: 'ROOT_QUERY', fieldName: 'games'});
+
       setEndReached(false);
-      await fetchGames({variables: gamesVariables(search, undefined)});
+      await fetchGames({
+        variables: gamesVariables(search, undefined),
+      });
     }, 1000);
 
     return () => clearTimeout(delayDebounceFn);
