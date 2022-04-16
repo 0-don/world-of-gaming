@@ -1,5 +1,10 @@
 fragment InvolvedCompany on InvolvedCompany {
-  url(imageType: $platformLogo)
-  height
-  width
+  id
+  created_at
+  developer
+  porting
+  publisher
+  supporting
+  updated_at
+  checksum
 }

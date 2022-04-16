@@ -937,6 +937,30 @@ export type ArtworkFragment = {
   height?: number | null;
 };
 
+export type CompanyFragment = {
+  __typename?: 'Company';
+  id?: number | null;
+  change_date?: number | null;
+  country?: number | null;
+  created_at?: number | null;
+  description?: string | null;
+  name?: string | null;
+  slug?: string | null;
+  start_date?: string | null;
+  start_date_category?: DateFormatChangeDateCategory | null;
+  updated_at?: number | null;
+  url?: string | null;
+  checksum?: string | null;
+  change_date_category?: DateFormatChangeDateCategory | null;
+};
+
+export type CompanyLogoFragment = {
+  __typename?: 'CompanyLogo';
+  url?: string | null;
+  width?: number | null;
+  height?: number | null;
+};
+
 export type CoverFragment = {
   __typename?: 'Cover';
   url?: string | null;
@@ -967,6 +991,48 @@ export type GameFragment = {
   updated_at?: number | null;
   url?: string | null;
   version_title?: string | null;
+  checksum?: string | null;
+};
+
+export type GameVideoFragment = {
+  __typename?: 'GameVideo';
+  id?: number | null;
+  name?: string | null;
+  video_id?: string | null;
+  checksum?: string | null;
+};
+
+export type GameModeFragment = {
+  __typename?: 'GameMode';
+  url?: string | null;
+  checksum?: string | null;
+  updated_at?: number | null;
+  slug?: string | null;
+  name?: string | null;
+  created_at?: number | null;
+  id?: number | null;
+};
+
+export type GenreFragment = {
+  __typename?: 'Genre';
+  name?: string | null;
+  id?: number | null;
+  created_at?: number | null;
+  slug?: string | null;
+  updated_at?: number | null;
+  url?: string | null;
+  checksum?: string | null;
+};
+
+export type InvolvedCompanyFragment = {
+  __typename?: 'InvolvedCompany';
+  id?: number | null;
+  created_at?: number | null;
+  developer?: boolean | null;
+  porting?: boolean | null;
+  publisher?: boolean | null;
+  supporting?: boolean | null;
+  updated_at?: number | null;
   checksum?: string | null;
 };
 
@@ -1047,6 +1113,97 @@ export type GameDetailsQuery = {
         width?: number | null;
       } | null;
     }> | null;
+    genres?: Array<{
+      __typename?: 'Genre';
+      name?: string | null;
+      id?: number | null;
+      created_at?: number | null;
+      slug?: string | null;
+      updated_at?: number | null;
+      url?: string | null;
+      checksum?: string | null;
+    }> | null;
+    game_modes?: Array<{
+      __typename?: 'GameMode';
+      url?: string | null;
+      checksum?: string | null;
+      updated_at?: number | null;
+      slug?: string | null;
+      name?: string | null;
+      created_at?: number | null;
+      id?: number | null;
+    }> | null;
+    similar_games?: Array<{
+      __typename?: 'Game';
+      id?: number | null;
+      aggregated_rating?: number | null;
+      aggregated_rating_count?: number | null;
+      category?: GameCategory | null;
+      created_at?: number | null;
+      first_release_date?: number | null;
+      follows?: number | null;
+      hypes?: number | null;
+      name?: string | null;
+      rating?: number | null;
+      rating_count?: number | null;
+      slug?: string | null;
+      status?: GameStatus | null;
+      storyline?: string | null;
+      summary?: string | null;
+      tags?: Array<number> | null;
+      total_rating?: number | null;
+      total_rating_count?: number | null;
+      updated_at?: number | null;
+      url?: string | null;
+      version_title?: string | null;
+      checksum?: string | null;
+      cover?: {
+        __typename?: 'Cover';
+        url?: string | null;
+        width?: number | null;
+        height?: number | null;
+      } | null;
+    }> | null;
+    videos?: Array<{
+      __typename?: 'GameVideo';
+      id?: number | null;
+      name?: string | null;
+      video_id?: string | null;
+      checksum?: string | null;
+    }> | null;
+    involved_companies?: Array<{
+      __typename?: 'InvolvedCompany';
+      id?: number | null;
+      created_at?: number | null;
+      developer?: boolean | null;
+      porting?: boolean | null;
+      publisher?: boolean | null;
+      supporting?: boolean | null;
+      updated_at?: number | null;
+      checksum?: string | null;
+      company?: {
+        __typename?: 'Company';
+        id?: number | null;
+        change_date?: number | null;
+        country?: number | null;
+        created_at?: number | null;
+        description?: string | null;
+        name?: string | null;
+        slug?: string | null;
+        start_date?: string | null;
+        start_date_category?: DateFormatChangeDateCategory | null;
+        updated_at?: number | null;
+        url?: string | null;
+        checksum?: string | null;
+        change_date_category?: DateFormatChangeDateCategory | null;
+        logo?: {
+          __typename?: 'CompanyLogo';
+          url?: string | null;
+          width?: number | null;
+          height?: number | null;
+        } | null;
+      } | null;
+    }> | null;
   }> | null;
 };
 
@@ -1111,6 +1268,30 @@ export const ArtworkFragmentDoc = gql`
     height
   }
 `;
+export const CompanyFragmentDoc = gql`
+  fragment Company on Company {
+    id
+    change_date
+    country
+    created_at
+    description
+    name
+    slug
+    start_date
+    start_date_category
+    updated_at
+    url
+    checksum
+    change_date_category
+  }
+`;
+export const CompanyLogoFragmentDoc = gql`
+  fragment CompanyLogo on CompanyLogo {
+    url(imageType: $platformLogo)
+    width
+    height
+  }
+`;
 export const CoverFragmentDoc = gql`
   fragment Cover on Cover {
     url(imageType: $imageType)
@@ -1141,6 +1322,48 @@ export const GameFragmentDoc = gql`
     updated_at
     url
     version_title
+    checksum
+  }
+`;
+export const GameVideoFragmentDoc = gql`
+  fragment GameVideo on GameVideo {
+    id
+    name
+    video_id
+    checksum
+  }
+`;
+export const GameModeFragmentDoc = gql`
+  fragment GameMode on GameMode {
+    url
+    checksum
+    updated_at
+    slug
+    name
+    created_at
+    id
+  }
+`;
+export const GenreFragmentDoc = gql`
+  fragment Genre on Genre {
+    name
+    id
+    created_at
+    slug
+    updated_at
+    url
+    checksum
+  }
+`;
+export const InvolvedCompanyFragmentDoc = gql`
+  fragment InvolvedCompany on InvolvedCompany {
+    id
+    created_at
+    developer
+    porting
+    publisher
+    supporting
+    updated_at
     checksum
   }
 `;
@@ -1187,6 +1410,30 @@ export const GameDetailsDocument = gql`
           ...PlatformLogo
         }
       }
+      genres {
+        ...Genre
+      }
+      game_modes {
+        ...GameMode
+      }
+      similar_games {
+        ...Game
+        cover {
+          ...Cover
+        }
+      }
+      videos {
+        ...GameVideo
+      }
+      involved_companies {
+        ...InvolvedCompany
+        company {
+          ...Company
+          logo {
+            ...CompanyLogo
+          }
+        }
+      }
     }
   }
   ${GameFragmentDoc}
@@ -1195,6 +1442,12 @@ export const GameDetailsDocument = gql`
   ${CoverFragmentDoc}
   ${PlatformFragmentDoc}
   ${PlatformLogoFragmentDoc}
+  ${GenreFragmentDoc}
+  ${GameModeFragmentDoc}
+  ${GameVideoFragmentDoc}
+  ${InvolvedCompanyFragmentDoc}
+  ${CompanyFragmentDoc}
+  ${CompanyLogoFragmentDoc}
 `;
 
 /**

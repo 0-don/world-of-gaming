@@ -34,7 +34,7 @@ query GameDetails(
       }
     }
     videos {
-      ...Video
+      ...GameVideo
     }
     involved_companies {
       ...InvolvedCompany

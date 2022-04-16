@@ -1,4 +1,4 @@
-fragment Video on Video {
+fragment GameVideo on GameVideo {
   id
   name
   video_id
