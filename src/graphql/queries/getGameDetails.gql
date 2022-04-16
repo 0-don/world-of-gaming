@@ -21,5 +21,29 @@ query GameDetails(
         ...PlatformLogo
       }
     }
+    genres {
+      ...Genre
+    }
+    game_modes {
+      ...GameMode
+    }
+    similar_games {
+      ...Game
+      cover {
+        ...Cover
+      }
+    }
+    videos {
+      ...Video
+    }
+    involved_companies {
+      ...InvolvedCompany
+      company {
+        ...Company
+        logo {
+          ...CompanyLogo
+        }
+      }
+    }
   }
 }

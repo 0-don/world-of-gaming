@@ -1,0 +1,9 @@
+fragment GameMode on GameMode {
+  url
+  checksum
+  updated_at
+  slug
+  name
+  created_at
+  id
+}

@@ -1,0 +1,9 @@
+fragment Genre on Genre {
+  name
+  id
+  created_at
+  slug
+  updated_at
+  url
+  checksum
+}

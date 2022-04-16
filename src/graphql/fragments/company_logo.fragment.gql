@@ -1,0 +1,5 @@
+fragment CompanyLogo on CompanyLogo {
+  url(imageType: $platformLogo)
+  width
+  height
+}

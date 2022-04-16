@@ -1,0 +1,5 @@
+fragment InvolvedCompany on InvolvedCompany {
+  url(imageType: $platformLogo)
+  height
+  width
+}

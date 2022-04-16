@@ -1,0 +1,15 @@
+fragment Company on Company {
+  id
+  change_date
+  country
+  created_at
+  description
+  name
+  slug
+  start_date
+  start_date_category
+  updated_at
+  url
+  checksum
+  change_date_category
+}

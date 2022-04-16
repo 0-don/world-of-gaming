@@ -1,0 +1,6 @@
+fragment Video on Video {
+  id
+  name
+  video_id
+  checksum
+}

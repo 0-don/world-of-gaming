@@ -45,10 +45,9 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
   return (
     <TouchableOpacity
       style={tailwind('mt-2')}
-      onPress={() => {
-        // setGameDetails(null);
-        navigation.navigate('GameDetails', {id: game.id!, navigation});
-      }}>
+      onPress={() =>
+        navigation.navigate('GameDetails', {id: game.id!, navigation})
+      }>
       <View style={tailwind('flex-row rounded-xl bg-dark py-2')}>
         <Image
           source={cover?.url ? {uri: cover.url} : placeholder}

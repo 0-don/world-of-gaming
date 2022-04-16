@@ -9,6 +9,7 @@ import {RootStackParamList} from '../navigation/AppNav';
 import useGamesStore from '../store/GamesStore';
 import {gameDetailsVariables} from '../utils/apolloVariables';
 import {GamesNavigationProp} from './Games';
+import placeholder from '../assets/images/placeholder_game.png';
 
 export type GameDetailsRouteProp = RouteProp<RootStackParamList, 'GameDetails'>;
 
@@ -61,6 +62,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     const artworksUrls = artworks?.filter(({url}) => url)?.map(({url}) => url);
 
     const urls = [...(screenshotsUrls || []), ...(artworksUrls || [])];
+    cover?.url && urls.push(cover?.url);
     return urls[Math.floor(Math.random() * urls.length)];
   };
 
@@ -68,9 +70,13 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     <BackgroundImage safeArea img={images()}>
       <View style={tailwind('mx-2 flex-row rounded-md bg-dark py-2')}>
         <Image
-          source={{uri: cover?.url || images() || ''}}
+          source={cover?.url ? {uri: cover.url} : placeholder}
           resizeMode="contain"
-          style={tailwind('mx-2 h-36 rounded-md [aspectRatio:0.75]')}
+          style={tailwind(
+            `mx-2 h-36 rounded-md ${
+              cover?.url ? '[aspectRatio:0.75]' : 'w-24' //i hate react native image support
+            }`,
+          )}
         />
 
         <View style={tailwind('flex-1 justify-between')}>
