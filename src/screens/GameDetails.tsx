@@ -1,9 +1,8 @@
-/* eslint-disable react-native/no-inline-styles */
 import {RouteProp} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {View, ViewStyle} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
+import {Block} from '../components/containers/Block';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
 import {useGameDetailsLazyQuery} from '../graphql/generated/schema';
@@ -58,17 +57,6 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     cover?.url && urls.push(cover?.url);
     return urls[Math.floor(Math.random() * urls.length)];
   };
-
-  const Block: React.FC<{style: ViewStyle}> = ({children, style}) => (
-    <View
-      style={{
-        ...tailwind('mx-2 rounded-md py-2'),
-        ...style,
-        backgroundColor: 'rgba(23,23,23,0.95)',
-      }}>
-      {children}
-    </View>
-  );
 
   return (
     <BackgroundImage safeArea img={images()}>

@@ -31,6 +31,12 @@
 			"marginRight": 8
 		}
 	},
+	"mx-20": {
+		"style": {
+			"marginLeft": 80,
+			"marginRight": 80
+		}
+	},
 	"mt-2": {
 		"style": {
 			"marginTop": 8
@@ -136,6 +142,11 @@
 	"flex-wrap": {
 		"style": {
 			"flexWrap": "wrap"
+		}
+	},
+	"items-start": {
+		"style": {
+			"alignItems": "flex-start"
 		}
 	},
 	"items-center": {
@@ -251,6 +262,12 @@
 		"style": {
 			"paddingTop": 8,
 			"paddingBottom": 8
+		}
+	},
+	"px-5": {
+		"style": {
+			"paddingLeft": 20,
+			"paddingRight": 20
 		}
 	},
 	"pb-5": {
