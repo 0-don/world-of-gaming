@@ -989,10 +989,8 @@ export type GameFragment = {
 
 export type GameVideoFragment = {
   __typename?: 'GameVideo';
-  id?: number | null;
   name?: string | null;
   video_id?: string | null;
-  checksum?: string | null;
 };
 
 export type GameModeFragment = {
@@ -1119,10 +1117,8 @@ export type GameDetailsQuery = {
     }> | null;
     videos?: Array<{
       __typename?: 'GameVideo';
-      id?: number | null;
       name?: string | null;
       video_id?: string | null;
-      checksum?: string | null;
     }> | null;
     involved_companies?: Array<{
       __typename?: 'InvolvedCompany';
@@ -1244,10 +1240,8 @@ export const GameFragmentDoc = gql`
 `;
 export const GameVideoFragmentDoc = gql`
   fragment GameVideo on GameVideo {
-    id
     name
     video_id
-    checksum
   }
 `;
 export const GameModeFragmentDoc = gql`

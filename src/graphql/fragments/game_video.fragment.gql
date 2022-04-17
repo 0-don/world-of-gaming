@@ -1,6 +1,4 @@
 fragment GameVideo on GameVideo {
-  id
   name
   video_id
-  checksum
 }

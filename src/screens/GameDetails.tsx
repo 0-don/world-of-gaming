@@ -6,6 +6,7 @@ import {Block} from '../components/containers/Block';
 import {SafeArea} from '../components/containers/SafeArea';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
 import {HorizontalSliderContent} from '../components/elements/HorizontalSliderContent';
+import {HorizontalVideoSlider} from '../components/elements/HorizontalVideoSlider';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
 import {useGameDetailsQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
@@ -36,7 +37,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     );
   }
 
-  const {cover, artworks, screenshots, platforms, involved_companies} =
+  const {cover, artworks, screenshots, platforms, involved_companies, videos} =
     data?.game;
   const platformNames = platforms?.map(({name}) => name);
   const developerNames = involved_companies?.map(({company}) => company?.name);
@@ -53,6 +54,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   };
 
   const backgroundImages = images();
+  const videosList = videos?.map(({video_id, name}) => ({video_id, name}));
 
   return (
     <BackgroundImage
@@ -73,6 +75,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
           data={images()}
           imgStyle={tailwind('mx-2 h-36 w-36')}
         />
+        <HorizontalVideoSlider name="videos" data={videosList} />
       </Block>
     </BackgroundImage>
   );
