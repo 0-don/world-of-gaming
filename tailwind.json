@@ -249,12 +249,6 @@
 			"backgroundColor": "rgb(14 14 16 / var(--tw-bg-opacity))"
 		}
 	},
-	"bg-white": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(255 255 255 / var(--tw-bg-opacity))"
-		}
-	},
 	"bg-black": {
 		"style": {
 			"--tw-bg-opacity": 1,
