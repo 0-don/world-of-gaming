@@ -13,9 +13,9 @@ query GameDetails(
     cover {
       ...Cover
     }
-    # platforms {
-    #   ...Platform
-    # }
+    platforms {
+      ...Platform
+    }
     genres {
       ...Genre
     }

@@ -1079,6 +1079,7 @@ export type GameDetailsQuery = {
       width?: number | null;
       height?: number | null;
     } | null;
+    platforms?: Array<{__typename?: 'Platform'; name?: string | null}> | null;
     genres?: Array<{
       __typename?: 'Genre';
       name?: string | null;
@@ -1314,6 +1315,9 @@ export const GameDetailsDocument = gql`
       cover {
         ...Cover
       }
+      platforms {
+        ...Platform
+      }
       genres {
         ...Genre
       }
@@ -1341,6 +1345,7 @@ export const GameDetailsDocument = gql`
   ${ScreenshotFragmentDoc}
   ${ArtworkFragmentDoc}
   ${CoverFragmentDoc}
+  ${PlatformFragmentDoc}
   ${GenreFragmentDoc}
   ${GameModeFragmentDoc}
   ${GameVideoFragmentDoc}
