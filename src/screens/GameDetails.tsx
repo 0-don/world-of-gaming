@@ -49,11 +49,17 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
 
     const urls = [...(screenshotsUrls || []), ...(artworksUrls || [])];
     cover?.url && urls.push(cover?.url);
-    return urls[Math.floor(Math.random() * urls.length)];
+    return urls;
   };
 
+  const backgroundImages = images();
+
   return (
-    <BackgroundImage safeArea img={images()}>
+    <BackgroundImage
+      safeArea
+      img={
+        backgroundImages[Math.floor(Math.random() * backgroundImages.length)]
+      }>
       <Block style={tailwind('flex-row')}>
         <GameDetailsHeader gameDetails={data.game} />
       </Block>
@@ -61,6 +67,12 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
       <Block style={tailwind('flex-1 px-2 text-white')}>
         <HorizontalSliderContent name="platforms" data={platformNames} />
         <HorizontalSliderContent name="developers" data={developerNames} />
+        <HorizontalSliderContent
+          img
+          name="images"
+          data={images()}
+          imgStyle={tailwind('mx-2 h-36 w-36')}
+        />
       </Block>
     </BackgroundImage>
   );

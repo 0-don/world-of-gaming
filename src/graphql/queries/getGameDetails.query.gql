@@ -1,9 +1,7 @@
-query GameDetails(
-  $where: GamesWhereInput
-  $imageType: ImageTypeEnum
-) {
+query GameDetails($where: GamesWhereInput, $imageType: ImageTypeEnum) {
   game(where: $where) {
     ...Game
+    summary
     screenshots {
       ...Screenshot
     }

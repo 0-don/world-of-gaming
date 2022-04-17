@@ -31,13 +31,9 @@ export const Search: React.FC<SearchProps> = ({
     if (isFocused) {
       const delayDebounceFn = setTimeout(async () => {
         cache.evict({id: 'ROOT_QUERY', fieldName: 'games'});
-
         setEndReached(false);
-        console.log('search');
-        await fetchGames({
-          variables: gamesVariables(search, 0),
-        });
-      }, 1000);
+        await fetchGames({variables: gamesVariables(search, 0)});
+      }, 100);
 
       return () => clearTimeout(delayDebounceFn);
     }

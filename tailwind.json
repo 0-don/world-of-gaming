@@ -115,6 +115,11 @@
 			"height": 40
 		}
 	},
+	"h-3": {
+		"style": {
+			"height": 12
+		}
+	},
 	"w-[4.5rem]": {
 		"style": {
 			"width": 72
@@ -148,6 +153,11 @@
 	"w-11/12": {
 		"style": {
 			"width": "91.666667%"
+		}
+	},
+	"w-36": {
+		"style": {
+			"width": 144
 		}
 	},
 	"flex-1": {
@@ -190,6 +200,11 @@
 	"justify-between": {
 		"style": {
 			"justifyContent": "space-between"
+		}
+	},
+	"overflow-hidden": {
+		"style": {
+			"overflow": "hidden"
 		}
 	},
 	"rounded-xl": {
@@ -391,6 +406,16 @@
 	"[aspectRatio:1]": {
 		"style": {
 			"aspectRatio": 1
+		}
+	},
+	"[aspectRatio:2]": {
+		"style": {
+			"aspectRatio": 2
+		}
+	},
+	"[aspectRatio:0.5]": {
+		"style": {
+			"aspectRatio": 0.5
 		}
 	}
 }

@@ -28,7 +28,7 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
   const isFocused = useIsFocused();
   const [search, setSearch] = useState('');
   const [endReached, setEndReached] = useState(false);
-  const [fetchGames, {data, loading, fetchMore}] = useGamesLazyQuery({
+  const [fetchGames, {data, loading, fetchMore, called}] = useGamesLazyQuery({
     notifyOnNetworkStatusChange: true,
   });
 
@@ -36,21 +36,20 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
 
   const fetchMoreGames = async () => {
     if (!endReached && !loading && isFocused) {
-      console.log('fetch more');
       const {data: fetchData} = await fetchMore({
         variables: gamesVariables(search, data?.games?.length || 0),
       });
-
       setEndReached(fetchData?.games?.length ? false : true);
     }
   };
+
   // console.log(loading, games?.length);
   // useEffect(() => {
   //   if (games && games?.length > 0) {
   //     navigation.navigate('GameDetails', {id: games[0].id!, navigation});
   //   }
   // }, [games, navigation]);
-  console.log(loading, games?.length);
+
   return (
     <SafeArea style={tailwind('flex-1 bg-dark-dark')}>
       <Search
@@ -62,13 +61,13 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
       />
       {loading && !games ? (
         <FlatListLoader />
-      ) : !loading && !games?.length ? (
+      ) : called && !games?.length ? (
         <View style={tailwind('flex-1 items-center justify-center')}>
           <Text style={tailwind('font-objektiv-mk1-bold text-3xl text-white')}>
             no games found
           </Text>
           <View style={tailwind('[aspectRatio:1]')}>
-            <SvgXml width="100%" height="300" xml={noGamesFound} />
+            <SvgXml width="100%" height="200" xml={noGamesFound} />
           </View>
         </View>
       ) : (

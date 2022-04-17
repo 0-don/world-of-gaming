@@ -48,11 +48,12 @@ export const HorizontalSliderContent: React.FC<
                 ...viewStyle,
               }}>
               <Image
-                resizeMode="contain"
+                borderRadius={10}
+                resizeMode="cover"
                 style={{
                   ...imgStyle,
                 }}
-                source={{uri: item || ''}}
+                source={{uri: item!}}
               />
             </View>
           )

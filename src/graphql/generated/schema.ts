@@ -1054,6 +1054,7 @@ export type GameDetailsQuery = {
   __typename?: 'Query';
   game?: {
     __typename?: 'Game';
+    summary?: string | null;
     id?: number | null;
     aggregated_rating?: number | null;
     category?: GameCategory | null;
@@ -1306,6 +1307,7 @@ export const GameDetailsDocument = gql`
   query GameDetails($where: GamesWhereInput, $imageType: ImageTypeEnum) {
     game(where: $where) {
       ...Game
+      summary
       screenshots {
         ...Screenshot
       }
