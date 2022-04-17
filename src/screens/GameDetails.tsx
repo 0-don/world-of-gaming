@@ -12,7 +12,7 @@ import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Block} from '../components/containers/Block';
 import {SafeArea} from '../components/containers/SafeArea';
-import {GameListContentLoader} from '../components/elements/GameListContentLoader';
+import {GameListContentLoader} from '../components/loaders/GameListContentLoader';
 import {HorizontalSliderContent} from '../components/elements/HorizontalSliderContent';
 import {HorizontalVideoSlider} from '../components/elements/HorizontalVideoSlider';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
@@ -43,7 +43,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     fetchPolicy: 'no-cache',
   });
 
-  if (!data?.game || loading) {
+  if (!data?.game || !loading) {
     return (
       <SafeArea style={tailwind('bg-dark-dark')}>
         <GameListContentLoader />

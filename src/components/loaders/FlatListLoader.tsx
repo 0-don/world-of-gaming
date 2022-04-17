@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
-import {GameListContentLoader} from './elements/GameListContentLoader';
+import {GameListContentLoader} from './GameListContentLoader';
 
 export const FlatListLoader: React.FC = () => {
   const tailwind = useTailwind();

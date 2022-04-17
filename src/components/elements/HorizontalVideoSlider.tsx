@@ -41,7 +41,7 @@ export const HorizontalVideoSlider: React.FC<HorizontalVideoSliderProps> = ({
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <TouchableOpacity
-            style={tailwind('mx-1 flex-row rounded-full bg-purple px-2 ')}
+            style={tailwind('mx-1 flex-row rounded-full bg-purple px-2')}
             onPress={async () =>
               await Linking.openURL(
                 `https://www.youtube.com/watch?v=${item.video_id!}`,
