@@ -1,3 +1,4 @@
+import {useIsFocused} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
@@ -10,7 +11,6 @@ import {Search} from '../components/Search';
 import {useGamesLazyQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
 import {gamesVariables} from '../utils/apolloVariables';
-import {useIsFocused} from '@react-navigation/native';
 
 export type GamesNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -33,6 +33,7 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
 
   const games = data?.games;
   console.log(games?.length, loading, error, networkStatus);
+
   const fetchMoreGames = async () => {
     if (!endReached && !loading && isFocused) {
       console.log('fetch more', search, data?.games?.length);

@@ -1047,7 +1047,6 @@ export type ScreenshotFragment = {
 
 export type GameDetailsQueryVariables = Exact<{
   where?: InputMaybe<GamesWhereInput>;
-  sort?: InputMaybe<GamesSortInput>;
   imageType?: InputMaybe<ImageTypeEnum>;
 }>;
 
@@ -1080,7 +1079,6 @@ export type GameDetailsQuery = {
       width?: number | null;
       height?: number | null;
     } | null;
-    platforms?: Array<{__typename?: 'Platform'; name?: string | null}> | null;
     genres?: Array<{
       __typename?: 'Genre';
       name?: string | null;
@@ -1304,12 +1302,8 @@ export const ScreenshotFragmentDoc = gql`
   }
 `;
 export const GameDetailsDocument = gql`
-  query GameDetails(
-    $where: GamesWhereInput
-    $sort: GamesSortInput
-    $imageType: ImageTypeEnum
-  ) {
-    game(where: $where, sort: $sort) {
+  query GameDetails($where: GamesWhereInput, $imageType: ImageTypeEnum) {
+    game(where: $where) {
       ...Game
       screenshots {
         ...Screenshot
@@ -1319,9 +1313,6 @@ export const GameDetailsDocument = gql`
       }
       cover {
         ...Cover
-      }
-      platforms {
-        ...Platform
       }
       genres {
         ...Genre
@@ -1350,7 +1341,6 @@ export const GameDetailsDocument = gql`
   ${ScreenshotFragmentDoc}
   ${ArtworkFragmentDoc}
   ${CoverFragmentDoc}
-  ${PlatformFragmentDoc}
   ${GenreFragmentDoc}
   ${GameModeFragmentDoc}
   ${GameVideoFragmentDoc}
@@ -1371,7 +1361,6 @@ export const GameDetailsDocument = gql`
  * const { data, loading, error } = useGameDetailsQuery({
  *   variables: {
  *      where: // value for 'where'
- *      sort: // value for 'sort'
  *      imageType: // value for 'imageType'
  *   },
  * });

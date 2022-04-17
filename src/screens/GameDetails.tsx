@@ -35,9 +35,8 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     );
   }
 
-  const {cover, artworks, screenshots, platforms, involved_companies} =
-    data?.game;
-  const platformNames = platforms?.map(({name}) => name);
+  const {cover, artworks, screenshots, involved_companies} = data?.game;
+  // const platformNames = platforms?.map(({name}) => name);
   const developerNames = involved_companies?.map(({company}) => company?.name);
 
   const images = () => {
@@ -58,7 +57,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
       </Block>
 
       <Block style={tailwind('flex-1 px-2 text-white')}>
-        <HorizontalSliderContent name="platforms" data={platformNames} />
+        {/* <HorizontalSliderContent name="platforms" data={platformNames} /> */}
         <HorizontalSliderContent name="developers" data={developerNames} />
       </Block>
     </BackgroundImage>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useApolloClient} from '@apollo/client';
 import {useIsFocused} from '@react-navigation/native';
 import React, {Dispatch, SetStateAction, useEffect} from 'react';
@@ -40,7 +41,7 @@ export const Search: React.FC<SearchProps> = ({
 
       return () => clearTimeout(delayDebounceFn);
     }
-  }, [search, fetchGames, setEndReached, cache, isFocused]);
+  }, [search, fetchGames, setEndReached, cache]);
 
   return (
     <View style={{...style, ...tailwind('')}}>

@@ -1,9 +1,8 @@
 query GameDetails(
   $where: GamesWhereInput
-  $sort: GamesSortInput
   $imageType: ImageTypeEnum
 ) {
-  game(where: $where, sort: $sort) {
+  game(where: $where) {
     ...Game
     screenshots {
       ...Screenshot
@@ -14,9 +13,9 @@ query GameDetails(
     cover {
       ...Cover
     }
-    platforms {
-      ...Platform
-    }
+    # platforms {
+    #   ...Platform
+    # }
     genres {
       ...Genre
     }
