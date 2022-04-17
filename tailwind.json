@@ -334,6 +334,21 @@
 			"paddingLeft": 4
 		}
 	},
+	"pb-2": {
+		"style": {
+			"paddingBottom": 8
+		}
+	},
+	"pb-8": {
+		"style": {
+			"paddingBottom": 32
+		}
+	},
+	"pb-10": {
+		"style": {
+			"paddingBottom": 40
+		}
+	},
 	"font-objektiv-mk1-bold": {
 		"style": {
 			"fontFamily": "Objektiv_Mk1_Bold"

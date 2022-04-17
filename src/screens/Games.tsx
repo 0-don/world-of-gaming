@@ -43,10 +43,9 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
     }
   };
 
-  // console.log(loading, games?.length);
   // useEffect(() => {
   //   if (games && games?.length > 0) {
-  //     navigation.navigate('GameDetails', {id: games[0].id!, navigation});
+  //     navigation.navigate('GameDetails', {id: games[0].id!});
   //   }
   // }, [games, navigation]);
 

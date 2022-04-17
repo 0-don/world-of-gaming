@@ -38,7 +38,7 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
     fetchPolicy: 'no-cache',
   });
 
-  if (!data?.game || !loading) {
+  if (!data?.game || loading) {
     return (
       <SafeArea style={tailwind('bg-dark-dark px-2')}>
         <GameDetailsLoader />
