@@ -25,7 +25,6 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
   const tailwind = useTailwind();
   const {data, loading} = useGameDetailsQuery({
     variables: gameDetailsVariables(id),
-
     fetchPolicy: 'no-cache',
   });
 
