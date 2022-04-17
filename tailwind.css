@@ -39,12 +39,13 @@
   margin-right: 0.25rem
 }
 
-.mt-2 {
-  margin-top: 0.5rem
+.mx-64 {
+  margin-left: 16rem;
+  margin-right: 16rem
 }
 
-.mr-1 {
-  margin-right: 0.25rem
+.mt-2 {
+  margin-top: 0.5rem
 }
 
 .mt-0\.5 {
@@ -53,6 +54,10 @@
 
 .mt-0 {
   margin-top: 0px
+}
+
+.mr-1 {
+  margin-right: 0.25rem
 }
 
 .-mr-4 {
@@ -71,12 +76,12 @@
   display: flex
 }
 
-.h-5 {
-  height: 1.25rem
-}
-
 .h-24 {
   height: 6rem
+}
+
+.h-5 {
+  height: 1.25rem
 }
 
 .h-36 {
@@ -121,6 +126,10 @@
 
 .flex-row {
   flex-direction: row
+}
+
+.flex-col {
+  flex-direction: column
 }
 
 .flex-wrap {
@@ -252,6 +261,21 @@
   line-height: 1.25rem
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem
+}
+
 .font-semibold {
   font-weight: 600
 }
@@ -265,14 +289,14 @@
   color: rgb(255 255 255 / var(--tw-text-opacity))
 }
 
+.\[aspectRatio\:0\.75\] {
+  aspect-ratio: 0.75
+}
+
 .\[width\:undefined\] {
   width: undefined
 }
 
 .\[aspectRatio\:1\] {
   aspect-ratio: 1
-}
-
-.\[aspectRatio\:0\.75\] {
-  aspect-ratio: 0.75
 }

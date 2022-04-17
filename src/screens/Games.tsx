@@ -1,7 +1,8 @@
 import {useIsFocused} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
+import {SvgXml} from 'react-native-svg';
 import {useTailwind} from 'tailwind-rn/dist';
 import {SafeArea} from '../components/containers/SafeArea';
 import {GameListContentLoader} from '../components/elements/GameListContentLoader';
@@ -11,6 +12,7 @@ import {Search} from '../components/Search';
 import {useGamesLazyQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
 import {gamesVariables} from '../utils/apolloVariables';
+import noGamesFound from '../assets/images/no_games_found.svg';
 
 export type GamesNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -48,7 +50,7 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
   //     navigation.navigate('GameDetails', {id: games[0].id!, navigation});
   //   }
   // }, [games, navigation]);
-
+  console.log(loading, games?.length);
   return (
     <SafeArea style={tailwind('flex-1 bg-dark-dark')}>
       <Search
@@ -60,6 +62,15 @@ export const Games: React.FC<GamesProps> = ({navigation}) => {
       />
       {loading && !games ? (
         <FlatListLoader />
+      ) : !loading && !games?.length ? (
+        <View style={tailwind('flex-1 items-center justify-center')}>
+          <Text style={tailwind('font-objektiv-mk1-bold text-3xl text-white')}>
+            no games found
+          </Text>
+          <View style={tailwind('[aspectRatio:1]')}>
+            <SvgXml width="100%" height="300" xml={noGamesFound} />
+          </View>
+        </View>
       ) : (
         <FlatList
           contentContainerStyle={tailwind('mx-5')}

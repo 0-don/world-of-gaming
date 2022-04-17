@@ -9,6 +9,7 @@ import CircularProgress from 'react-native-circular-progress-indicator';
 import {GamesNavigationProp} from '../screens/Games';
 import placeholder from '../assets/images/placeholder_game.png';
 import {colorHexString} from '../utils/utils';
+import {HorizontalSliderContent} from './elements/HorizontalSliderContent';
 
 dayjs.extend(localizedFormat);
 interface GameCardProps {
@@ -20,26 +21,9 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
   const {cover, first_release_date, name, platforms, aggregated_rating} = game;
   const tailwind = useTailwind();
 
-  const platformLogos = () => {
-    const logos = platforms
-      ?.filter(({platform_logo}) => platform_logo?.url)
-      .map(({platform_logo}) => platform_logo?.url?.replace?.('.jpg', '.png'));
-
-    return logos?.map(logo => (
-      <View
-        key={logo}
-        style={{
-          backgroundColor: 'rgba(255,255,255,0.25)',
-          ...tailwind('mr-1 rounded-md p-1'),
-        }}>
-        <Image
-          resizeMode="contain"
-          style={tailwind('h-5 [width:undefined] [aspectRatio:1]')}
-          source={{uri: logo || ''}}
-        />
-      </View>
-    ));
-  };
+  const platformLogos = platforms
+    ?.filter(({platform_logo}) => platform_logo?.url)
+    .map(({platform_logo}) => platform_logo?.url?.replace?.('.jpg', '.png'));
 
   return (
     <TouchableOpacity
@@ -86,7 +70,17 @@ export const GameCard: React.FC<GameCardProps> = ({game, navigation}) => {
               />
             )}
           </View>
-          <View style={tailwind('flex-row')}>{platformLogos()}</View>
+          <View onStartShouldSetResponder={() => true}>
+            <HorizontalSliderContent
+              data={platformLogos}
+              img
+              viewStyle={{
+                backgroundColor: 'rgba(255,255,255,0.25)',
+                ...tailwind('mr-1 rounded-md p-1'),
+              }}
+              imgStyle={tailwind('h-5 [width:undefined] [aspectRatio:1]')}
+            />
+          </View>
         </View>
       </View>
     </TouchableOpacity>
