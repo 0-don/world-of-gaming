@@ -19,22 +19,10 @@
 			"right": 0
 		}
 	},
-	"mx-5": {
-		"style": {
-			"marginLeft": 20,
-			"marginRight": 20
-		}
-	},
 	"mx-2": {
 		"style": {
 			"marginLeft": 8,
 			"marginRight": 8
-		}
-	},
-	"my-1": {
-		"style": {
-			"marginTop": 4,
-			"marginBottom": 4
 		}
 	},
 	"my-2": {
@@ -43,16 +31,22 @@
 			"marginBottom": 8
 		}
 	},
+	"mx-5": {
+		"style": {
+			"marginLeft": 20,
+			"marginRight": 20
+		}
+	},
+	"my-1": {
+		"style": {
+			"marginTop": 4,
+			"marginBottom": 4
+		}
+	},
 	"mx-1": {
 		"style": {
 			"marginLeft": 4,
 			"marginRight": 4
-		}
-	},
-	"mx-64": {
-		"style": {
-			"marginLeft": 256,
-			"marginRight": 256
 		}
 	},
 	"mt-2": {
@@ -115,11 +109,6 @@
 			"height": 40
 		}
 	},
-	"h-3": {
-		"style": {
-			"height": 12
-		}
-	},
 	"w-[4.5rem]": {
 		"style": {
 			"width": 72
@@ -140,6 +129,11 @@
 			"width": 240
 		}
 	},
+	"w-36": {
+		"style": {
+			"width": 144
+		}
+	},
 	"w-full": {
 		"style": {
 			"width": "100%"
@@ -155,11 +149,6 @@
 			"width": "91.666667%"
 		}
 	},
-	"w-36": {
-		"style": {
-			"width": 144
-		}
-	},
 	"flex-1": {
 		"style": {
 			"flexGrow": 1,
@@ -170,11 +159,6 @@
 	"flex-row": {
 		"style": {
 			"flexDirection": "row"
-		}
-	},
-	"flex-col": {
-		"style": {
-			"flexDirection": "column"
 		}
 	},
 	"flex-wrap": {
@@ -200,11 +184,6 @@
 	"justify-between": {
 		"style": {
 			"justifyContent": "space-between"
-		}
-	},
-	"overflow-hidden": {
-		"style": {
-			"overflow": "hidden"
 		}
 	},
 	"rounded-xl": {
@@ -301,22 +280,16 @@
 			"paddingLeft": 4
 		}
 	},
-	"px-2": {
-		"style": {
-			"paddingLeft": 8,
-			"paddingRight": 8
-		}
-	},
 	"py-2": {
 		"style": {
 			"paddingTop": 8,
 			"paddingBottom": 8
 		}
 	},
-	"px-5": {
+	"px-2": {
 		"style": {
-			"paddingLeft": 20,
-			"paddingRight": 20
+			"paddingLeft": 8,
+			"paddingRight": 8
 		}
 	},
 	"pb-5": {
@@ -332,16 +305,6 @@
 	"pl-1": {
 		"style": {
 			"paddingLeft": 4
-		}
-	},
-	"pb-2": {
-		"style": {
-			"paddingBottom": 8
-		}
-	},
-	"pb-8": {
-		"style": {
-			"paddingBottom": 32
 		}
 	},
 	"pb-10": {
@@ -364,11 +327,6 @@
 			"fontFamily": "Objektiv_Mk1_Light"
 		}
 	},
-	"font-objektiv-mk1-thin": {
-		"style": {
-			"fontFamily": "Objektiv_Mk1_Thin"
-		}
-	},
 	"text-xl": {
 		"style": {
 			"fontSize": 20,
@@ -385,18 +343,6 @@
 		"style": {
 			"fontSize": 14,
 			"lineHeight": 20
-		}
-	},
-	"text-6xl": {
-		"style": {
-			"fontSize": 60,
-			"lineHeight": 1
-		}
-	},
-	"text-2xl": {
-		"style": {
-			"fontSize": 24,
-			"lineHeight": 32
 		}
 	},
 	"text-3xl": {
@@ -432,16 +378,6 @@
 	"[aspectRatio:1]": {
 		"style": {
 			"aspectRatio": 1
-		}
-	},
-	"[aspectRatio:2]": {
-		"style": {
-			"aspectRatio": 2
-		}
-	},
-	"[aspectRatio:0.5]": {
-		"style": {
-			"aspectRatio": 0.5
 		}
 	}
 }

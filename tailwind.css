@@ -14,19 +14,9 @@
   right: 0px
 }
 
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem
-}
-
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem
 }
 
 .my-2 {
@@ -34,14 +24,19 @@
   margin-bottom: 0.5rem
 }
 
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem
+}
+
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem
+}
+
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem
-}
-
-.mx-64 {
-  margin-left: 16rem;
-  margin-right: 16rem
 }
 
 .mt-2 {
@@ -92,10 +87,6 @@
   height: 2.5rem
 }
 
-.h-3 {
-  height: 0.75rem
-}
-
 .w-\[4\.5rem\] {
   width: 4.5rem
 }
@@ -112,6 +103,10 @@
   width: 15rem
 }
 
+.w-36 {
+  width: 9rem
+}
+
 .w-full {
   width: 100%
 }
@@ -124,20 +119,12 @@
   width: 91.666667%
 }
 
-.w-36 {
-  width: 9rem
-}
-
 .flex-1 {
   flex: 1 1 0%
 }
 
 .flex-row {
   flex-direction: row
-}
-
-.flex-col {
-  flex-direction: column
 }
 
 .flex-wrap {
@@ -158,10 +145,6 @@
 
 .justify-between {
   justify-content: space-between
-}
-
-.overflow-hidden {
-  overflow: hidden
 }
 
 .rounded-xl {
@@ -224,19 +207,14 @@
   padding: 0.25rem
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem
 }
 
 .pb-5 {
@@ -249,14 +227,6 @@
 
 .pl-1 {
   padding-left: 0.25rem
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem
-}
-
-.pb-8 {
-  padding-bottom: 2rem
 }
 
 .pb-10 {
@@ -275,10 +245,6 @@
   font-family: Objektiv_Mk1_Light
 }
 
-.font-objektiv-mk1-thin {
-  font-family: Objektiv_Mk1_Thin
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem
@@ -292,16 +258,6 @@
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem
 }
 
 .text-3xl {
@@ -332,12 +288,4 @@
 
 .\[aspectRatio\:1\] {
   aspect-ratio: 1
-}
-
-.\[aspectRatio\:2\] {
-  aspect-ratio: 2
-}
-
-.\[aspectRatio\:0\.5\] {
-  aspect-ratio: 0.5
 }
