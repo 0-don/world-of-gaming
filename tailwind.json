@@ -313,6 +313,12 @@
 			"paddingBottom": 8
 		}
 	},
+	"px-5": {
+		"style": {
+			"paddingLeft": 20,
+			"paddingRight": 20
+		}
+	},
 	"pb-5": {
 		"style": {
 			"paddingBottom": 20

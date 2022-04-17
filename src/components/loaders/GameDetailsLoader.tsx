@@ -1,8 +1,7 @@
 import React from 'react';
-import ContentLoader from 'react-content-loader';
 import {View} from 'react-native';
-import {Circle, Rect} from 'react-native-svg';
 import {useTailwind} from 'tailwind-rn/dist';
+import ContentLoader, {Circle, Rect} from 'react-content-loader/native';
 
 interface GameDetailsLoaderProps {}
 

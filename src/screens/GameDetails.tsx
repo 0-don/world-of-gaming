@@ -1,21 +1,16 @@
 import {RouteProp} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
 import {BackgroundImage} from '../components/containers/BackgroundImage';
 import {Block} from '../components/containers/Block';
 import {SafeArea} from '../components/containers/SafeArea';
-import {GameListContentLoader} from '../components/loaders/GameListContentLoader';
+import {HorizontalGamesSlider} from '../components/elements/HorizontalGamesSlider';
 import {HorizontalSliderContent} from '../components/elements/HorizontalSliderContent';
 import {HorizontalVideoSlider} from '../components/elements/HorizontalVideoSlider';
 import {GameDetailsHeader} from '../components/GameDetailsHeader';
+import {GameDetailsLoader} from '../components/loaders/GameDetailsLoader';
 import {useGameDetailsQuery} from '../graphql/generated/schema';
 import {RootStackParamList} from '../navigation/AppNav';
 import {gameDetailsVariables} from '../utils/apolloVariables';
@@ -45,8 +40,8 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
 
   if (!data?.game || !loading) {
     return (
-      <SafeArea style={tailwind('bg-dark-dark')}>
-        <GameListContentLoader />
+      <SafeArea style={tailwind('bg-dark-dark px-2')}>
+        <GameDetailsLoader />
       </SafeArea>
     );
   }
@@ -114,42 +109,11 @@ export const GameDetails: React.FC<GameDetailsProps> = ({
             </>
           )}
 
-          {similar_games && (
-            <>
-              <Text
-                style={tailwind('my-2 ml-1 font-objektiv-mk1-bold text-white')}>
-                similar games
-              </Text>
-              <FlatList
-                horizontal
-                style={tailwind('mt-2')}
-                data={similar_games}
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={item => item.slug!}
-                renderItem={({item}) => (
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate('GameDetails', {id: item.id!})
-                    }>
-                    <Image
-                      borderRadius={10}
-                      resizeMode="cover"
-                      source={{uri: item.cover?.url!}}
-                      style={tailwind('mx-2 h-36 w-36')}
-                    />
-                    <Text
-                      numberOfLines={1}
-                      ellipsizeMode="tail"
-                      style={tailwind(
-                        ' my-2 ml-1 w-36 font-objektiv-mk1-bold text-white',
-                      )}>
-                      {item.name}
-                    </Text>
-                  </TouchableOpacity>
-                )}
-              />
-            </>
-          )}
+          <HorizontalGamesSlider
+            name="similiar games"
+            data={similar_games}
+            navigation={navigation}
+          />
         </Block>
       </ScrollView>
     </BackgroundImage>

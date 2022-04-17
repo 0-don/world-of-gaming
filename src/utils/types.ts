@@ -6,3 +6,5 @@ export type ArrayElement<ArrayType extends unknown[] | undefined | null> =
 export type GamesQueryType = ArrayElement<GamesQuery['games']>;
 
 export type GameDetailsQueryType = GameDetailsQuery['game'];
+
+export type NonNullable<T> = Exclude<T, null | undefined>;
