@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, FlatList, View, Image, ViewStyle, ImageStyle} from 'react-native';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -31,6 +30,7 @@ export const HorizontalSliderContent: React.FC<
         horizontal
         data={data}
         showsHorizontalScrollIndicator={false}
+        keyExtractor={item => item!}
         renderItem={({item}) =>
           !img ? (
             <Text
@@ -58,7 +58,6 @@ export const HorizontalSliderContent: React.FC<
             </View>
           )
         }
-        keyExtractor={item => item!}
       />
     </>
   );

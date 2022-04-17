@@ -258,6 +258,10 @@
   font-family: Objektiv_Mk1_Light
 }
 
+.font-objektiv-mk1-thin {
+  font-family: Objektiv_Mk1_Thin
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem

@@ -1102,10 +1102,6 @@ export type GameDetailsQuery = {
     similar_games?: Array<{
       __typename?: 'Game';
       id?: number | null;
-      aggregated_rating?: number | null;
-      category?: GameCategory | null;
-      first_release_date?: number | null;
-      follows?: number | null;
       name?: string | null;
       slug?: string | null;
       cover?: {
@@ -1321,7 +1317,9 @@ export const GameDetailsDocument = gql`
         ...GameMode
       }
       similar_games {
-        ...Game
+        id
+        name
+        slug
         cover {
           ...Cover
         }

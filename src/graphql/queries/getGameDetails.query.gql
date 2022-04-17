@@ -21,7 +21,9 @@ query GameDetails($where: GamesWhereInput, $imageType: ImageTypeEnum) {
       ...GameMode
     }
     similar_games {
-      ...Game
+      id
+      name
+      slug
       cover {
         ...Cover
       }

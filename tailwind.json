@@ -343,6 +343,11 @@
 			"fontFamily": "Objektiv_Mk1_Light"
 		}
 	},
+	"font-objektiv-mk1-thin": {
+		"style": {
+			"fontFamily": "Objektiv_Mk1_Thin"
+		}
+	},
 	"text-xl": {
 		"style": {
 			"fontSize": 20,
