@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Don-Cryptus/world-of-gaming">
+  <a href="https://github.com/0-don/world-of-gaming">
     <img src="src/assets/images/icon.png" alt="Logo" width=200/>
   </a>
 
@@ -7,11 +7,11 @@
     <h1 align="center">World of Gaming</h1>
 
   <p align="center">
-    <a  href="https://github.com/Don-Cryptus/world-of-gaming/releases/latest">Test it out</a>
+    <a  href="https://github.com/0-don/world-of-gaming/releases/latest">Test it out</a>
     ·
-    <a  href="https://github.com/Don-Cryptus/world-of-gaming/issues">Report Bug</a>
+    <a  href="https://github.com/0-don/world-of-gaming/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Don-Cryptus/world-of-gaming/issues">Request Feature</a>
+    <a href="https://github.com/0-don/world-of-gaming/issues">Request Feature</a>
   </p>
 
 </p>
